@@ -71,9 +71,9 @@ public class PlayerControllerAbilityManagement : MonoBehaviour
         leftHand = player.leftHand;
 
         psm.mana = 100;
-        isChargingLightningPalm = true;
-        lightningPalmInitialFlag = true;
-        isCasting = true;
+        //isChargingLightningPalm = true;
+        //lightningPalmInitialFlag = true;
+        //isCasting = true;
 
         greenCube = Instantiate(DebugCube);
         redCube = Instantiate(DebugCube);
