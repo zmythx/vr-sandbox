@@ -13,32 +13,7 @@ ModelImporter:
     2300000: //RootNode
     3300000: //RootNode
     4300000: Cube
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: BlueLightMat
-    second: {fileID: 2100000, guid: 4c51900b3cc52744d9a845338a728753, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: GoldMat
-    second: {fileID: 2100000, guid: 29dbf0769a51b444684fe23d0ed05c96, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: HighlightMat
-    second: {fileID: 2100000, guid: 2d81487f36866734f82e124637248349, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: LightMat
-    second: {fileID: 2100000, guid: 707b8efa4fd09814cb86d58a7e96c24d, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: WallMaterial
-    second: {fileID: 2100000, guid: 7f8efe9404a0d5f4cb580c2dd69857bb, type: 2}
+  externalObjects: {}
   materials:
     importMaterials: 1
     materialName: 0
