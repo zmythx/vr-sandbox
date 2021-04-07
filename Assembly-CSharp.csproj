@@ -115,6 +115,7 @@
     <Compile Include="Assets\PlayerStateManagement.cs" />
     <Compile Include="Assets\PlayerStatManagement.cs" />
     <Compile Include="Assets\PlayerUIManagement.cs" />
+    <Compile Include="Assets\RainbowLights.cs" />
     <Compile Include="Assets\Shared\Ramps\Runtime\RampAsset.cs" />
     <Compile Include="Assets\Shared\Scripts\AdjustTimeScale.cs" />
     <Compile Include="Assets\Shared\Scripts\ProximityActivate.cs" />
