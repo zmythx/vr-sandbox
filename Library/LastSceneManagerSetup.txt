@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/SteamVR/InteractionSystem/Samples/VR_Sandbox.unity
+- path: Assets/Space_Station.unity
   isLoaded: 1
   isActive: 1

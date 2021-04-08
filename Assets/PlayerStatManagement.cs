@@ -34,6 +34,7 @@ public class PlayerStatManagement : MonoBehaviour
         mana = 100;
         mHealth = health;
         mMana = 100;
+        chargingParticle = Instantiate(chargingParticle);
 
     }
 
@@ -80,6 +81,6 @@ public class PlayerStatManagement : MonoBehaviour
         {
             chargingParticle.SetActive(false);
         }
-        gameText.text = string.Format("Health: {0}/{1} Mana: {2}/{3}", health, mHealth, mana, mMana);
+    //    gameText.text = string.Format("Health: {0}/{1} Mana: {2}/{3}", health, mHealth, mana, mMana);
     }
 }

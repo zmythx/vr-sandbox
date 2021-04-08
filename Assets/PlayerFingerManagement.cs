@@ -89,57 +89,60 @@ public class PlayerFingerManagement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        indexPos = playerInstance.rightHand.skeleton.indexCurl;
-        middlePos = playerInstance.rightHand.skeleton.middleCurl;
-        ringPos = playerInstance.rightHand.skeleton.ringCurl;
-        pinkyPos = playerInstance.rightHand.skeleton.pinkyCurl;
-        thumbPos = playerInstance.rightHand.skeleton.thumbCurl;
-        switch (curlState())
+        if (playerInstance.rightHand.skeleton != null && playerInstance.leftHand.skeleton != null)
         {
-            case "01100":
-                RCurrentState = "Ninja";
-                break;
-            case "11001":
-                RCurrentState = "Rocker";
-                break;
-            case "00100":
-                RCurrentState = "Rude";
-                break;
-            case "10111":
-                RCurrentState = "Firecast";
-                break;
-            case "00000":
-                RCurrentState = "Openpalm";
-                break;
-            default:
-                RCurrentState = "Resting";
-                break;
-        }
-        indexPos = playerInstance.leftHand.skeleton.indexCurl;
-        middlePos = playerInstance.leftHand.skeleton.middleCurl;
-        ringPos = playerInstance.leftHand.skeleton.ringCurl;
-        pinkyPos = playerInstance.leftHand.skeleton.pinkyCurl;
-        thumbPos = playerInstance.leftHand.skeleton.thumbCurl;
-        switch (curlState())
-        {
-            case "01100":
-                LCurrentState = "Ninja";
-                break;
-            case "11001":
-                LCurrentState = "Rocker";
-                break;
-            case "00100":
-                LCurrentState = "Rude";
-                break;
-            case "10111":
-                LCurrentState = "Firecast";
-                break;
-            case "00000":
-                LCurrentState = "Openpalm";
-                break;
-            default:
-                LCurrentState = "Resting";
-                break;
+            indexPos = playerInstance.rightHand.skeleton.indexCurl;
+            middlePos = playerInstance.rightHand.skeleton.middleCurl;
+            ringPos = playerInstance.rightHand.skeleton.ringCurl;
+            pinkyPos = playerInstance.rightHand.skeleton.pinkyCurl;
+            thumbPos = playerInstance.rightHand.skeleton.thumbCurl;
+            switch (curlState())
+            {
+                case "01100":
+                    RCurrentState = "Ninja";
+                    break;
+                case "11001":
+                    RCurrentState = "Rocker";
+                    break;
+                case "00100":
+                    RCurrentState = "Rude";
+                    break;
+                case "10111":
+                    RCurrentState = "Firecast";
+                    break;
+                case "00000":
+                    RCurrentState = "Openpalm";
+                    break;
+                default:
+                    RCurrentState = "Resting";
+                    break;
+            }
+            indexPos = playerInstance.leftHand.skeleton.indexCurl;
+            middlePos = playerInstance.leftHand.skeleton.middleCurl;
+            ringPos = playerInstance.leftHand.skeleton.ringCurl;
+            pinkyPos = playerInstance.leftHand.skeleton.pinkyCurl;
+            thumbPos = playerInstance.leftHand.skeleton.thumbCurl;
+            switch (curlState())
+            {
+                case "01100":
+                    LCurrentState = "Ninja";
+                    break;
+                case "11001":
+                    LCurrentState = "Rocker";
+                    break;
+                case "00100":
+                    LCurrentState = "Rude";
+                    break;
+                case "10111":
+                    LCurrentState = "Firecast";
+                    break;
+                case "00000":
+                    LCurrentState = "Openpalm";
+                    break;
+                default:
+                    LCurrentState = "Resting";
+                    break;
+            }
         }
        // gameText.text = RCurrentState;
       //  gameTextLeftHand.text = LCurrentState;

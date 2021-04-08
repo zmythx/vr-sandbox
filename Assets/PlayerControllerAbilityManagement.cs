@@ -75,7 +75,7 @@ public class PlayerControllerAbilityManagement : MonoBehaviour
         //lightningPalmInitialFlag = true;
         //isCasting = true;
 
-        greenCube = Instantiate(DebugCube);
+     /*   greenCube = Instantiate(DebugCube);
         redCube = Instantiate(DebugCube);
         blueCube = Instantiate(DebugCube);
         yellowCube = Instantiate(DebugCube);
@@ -87,7 +87,7 @@ public class PlayerControllerAbilityManagement : MonoBehaviour
         blueCube.GetComponent<Renderer>().material.SetColor("_Color", Color.blue);
         yellowCube.GetComponent<Renderer>().material.SetColor("_Color", Color.yellow);
         whiteCube.GetComponent<Renderer>().material.SetColor("_Color", Color.white);
-        blackCube.GetComponent<Renderer>().material.SetColor("_Color", Color.black);
+        blackCube.GetComponent<Renderer>().material.SetColor("_Color", Color.black); */
 
         lightningAbilityInstance = Instantiate(lightningAbilityParticles);
         fireAbilityInstance = Instantiate(fireAbilityParticles);

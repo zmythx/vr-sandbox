@@ -125,7 +125,7 @@ public class PlayerHandManagement : MonoBehaviour
     {
         lHand = playerInstance.leftHand;
         rHand = playerInstance.rightHand;
-        testRender = lHand.gameObject.AddComponent<LineRenderer>();
+    /*    testRender = lHand.gameObject.AddComponent<LineRenderer>();
         testRender.material = new Material(Shader.Find("Sprites/Default"));
         testRender.widthMultiplier = 0.02f;
         testRender.startColor = Color.blue;
@@ -134,7 +134,7 @@ public class PlayerHandManagement : MonoBehaviour
         testRender2.material = new Material(Shader.Find("Sprites/Default"));
         testRender2.widthMultiplier = 0.02f;
         testRender2.startColor = Color.blue;
-        testRender2.startColor = Color.red;
+        testRender2.startColor = Color.red; */
         Ray rayc = new Ray(rHand.transform.position, RHandForwardVector(rHand, 1));
     }
 
@@ -142,33 +142,5 @@ public class PlayerHandManagement : MonoBehaviour
     void Update()
     {
       
-     //   testRender.SetPosition(0, lHand.transform.position);
-      //  testRender.SetPosition(1, LHandForwardVector(lHand, 2));
-      //  testRender2.SetPosition(0, rHand.transform.position);
-       // testRender2.SetPosition(1, RHandForwardVector(rHand, 10));
-        RaycastHit hit;
-        
-        rayc.origin = rHand.transform.position;
-        rayc.direction = -rHand.transform.right;
-
-        Debug.DrawRay(rHand.transform.position, -rHand.transform.right);
-
-        int layerMask = 1 << 10;
-        if (Physics.Raycast(rayc, out hit, 100f, layerMask))
-        {
-            updateText.text = hit.collider.tag.ToString();
-            if (hit.collider.tag.ToString() == "SphereTag")
-            {
-                Debug.DrawLine(rHand.transform.position, RHandForwardVector(rHand, 10));
-                testRender2.startColor = Color.blue;
-            }
-
-        }
-        else
-        {
-        //    updateText.text = GetHandState();
-            testRender2.startColor = Color.red;
-        }
-        //  updateText.text = RightFacingLeft(rHand, lHand).ToString();
     }
 }
