@@ -68,7 +68,7 @@ public class PlayerControllerMovement : MonoBehaviour
         {
             downwardMomementum = maxDownwardMomentum;
         }
-        if(jumpinput.changed && jumpinput.state && isGrounded())
+        if (jumpinput.changed && jumpinput.state && isGrounded() || Input.GetKeyDown(KeyCode.Space) && isGrounded())
         {
             isJumping = true;
             downwardMomementum -= jumpForce;
