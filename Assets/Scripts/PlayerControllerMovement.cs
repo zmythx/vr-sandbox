@@ -28,9 +28,9 @@ public class PlayerControllerMovement : MonoBehaviour
     public float yaxismove = 0;
     public float jumpForce = 5;
     Vector3 directionlock;
-    private float mTimeThresholdSinceLastJump = 0.5f;
-    private bool passedTimeThreshold = true;
-    private float timeThresholdSinceLastJump = 0;
+  //  private float mTimeThresholdSinceLastJump = 0.5f;
+  //  private bool passedTimeThreshold = true;
+  //  private float timeThresholdSinceLastJump = 0;
 
     bool isGrounded()
     {
@@ -47,18 +47,14 @@ public class PlayerControllerMovement : MonoBehaviour
     }
     void Update()
     {
-        if(isJumping)
-        {
-            timeThresholdSinceLastJump += Time.deltaTime;
-        }
-        if(isGrounded() && timeThresholdSinceLastJump > mTimeThresholdSinceLastJump)
+
+        if(isGrounded())
         {
             isJumping = false;
         }
-        if ((isGrounded() || isIgnoringGravity) && timeThresholdSinceLastJump > mTimeThresholdSinceLastJump)
+        if ((isGrounded() || isIgnoringGravity))
         {
             downwardMomementum = 0;
-            timeThresholdSinceLastJump = 0;
         }
         else
         {
@@ -68,7 +64,7 @@ public class PlayerControllerMovement : MonoBehaviour
         {
             downwardMomementum = maxDownwardMomentum;
         }
-        if (jumpinput.changed && jumpinput.state && isGrounded() || Input.GetKeyDown(KeyCode.Space) && isGrounded())
+        if (jumpinput.changed && jumpinput.state && isGrounded())
         {
             isJumping = true;
             downwardMomementum -= jumpForce;

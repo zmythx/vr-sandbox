@@ -13,6 +13,7 @@ TagManager:
   - FxTemporaire
   - UIContainer
   - UIButton
+  - MeleeDamageTag
   layers:
   - Default
   - TransparentFX
@@ -29,7 +30,7 @@ TagManager:
   - UIButton
   - Phasable
   - Enemy
-  - 
+  - Teleport
   - 
   - 
   - 

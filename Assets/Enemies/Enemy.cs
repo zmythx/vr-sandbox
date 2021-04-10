@@ -16,6 +16,10 @@ public class Enemy : MonoBehaviour
     {
         Health -= damage;
     }
+    public void TakeDamage(float damage, string damtype)
+    {
+        Health -= damage;
+    }
 
     // Update is called once per frame
     void Update()
