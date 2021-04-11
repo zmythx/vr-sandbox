@@ -8,7 +8,7 @@ public class RainbowLights : MonoBehaviour
     public Renderer objRender;
     public Material matToChange;
     float curHue = 0;
-    public float ColorSpeed = 2;
+    public float ColorSpeed = 0.5f;
     void Start()
     {
         objRender = this.GetComponent<Renderer>();
@@ -35,5 +35,6 @@ public class RainbowLights : MonoBehaviour
         }
         curHue += 0.001f * ColorSpeed;
         matToChange.SetColor("_Color", Color.HSVToRGB(curHue, 1, 1));
+        matToChange.SetColor("_EmissionColor", Color.HSVToRGB(curHue, 1, 1));
     }
 }

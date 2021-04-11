@@ -109,7 +109,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objRender: {fileID: 6134702759616862808}
   matToChange: {fileID: 2100000, guid: 707b8efa4fd09814cb86d58a7e96c24d, type: 2}
-  ColorSpeed: 2
+  ColorSpeed: 0.5
 --- !u!1 &6134702759618856090
 GameObject:
   m_ObjectHideFlags: 0
