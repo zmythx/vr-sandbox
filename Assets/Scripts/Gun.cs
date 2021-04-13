@@ -24,6 +24,7 @@ public class Gun : MonoBehaviour
     public SteamVR_Action_Boolean UnloadButton;
 
     public string AmmoType;
+    public bool OverridesAmmoType;
 
     private Interactable interactable;
 
@@ -31,8 +32,6 @@ public class Gun : MonoBehaviour
 
     private bool justFired;
 
-    private GameObject rightHand;
-    private GameObject leftHand;
 
     // Start is called before the first frame update
     void Start()
@@ -40,36 +39,26 @@ public class Gun : MonoBehaviour
         CurrentAmmo = MaxAmmo;
         justFired = false;
         interactable = transform.GetComponent<Interactable>();
-        rightHand = GameObject.Find("RightHand");
-        leftHand = GameObject.Find("LeftHand");
     }
 
     // Update is called once per frame
     void Update()
     {
-        //held in left
-        TrigInput.GetAxis(SteamVR_Input_Sources.LeftHand);
-        if(TrigInput.GetAxis(SteamVR_Input_Sources.LeftHand) > FireThreshold && !justFired && interactable.attachedToHand != null)
+        if(interactable.attachedToHand != null)
         {
-            justFired = true;
-            GameObject bullet = Instantiate(Ammo, Firepoint.transform.position, Firepoint.transform.rotation);
-            bullet.GetComponent<Bullet>().Damage += Damage;
-            bullet.GetComponent<Rigidbody>().AddRelativeForce(Vector3.forward * FireForce * 1000);
-        }
-        if (TrigInput.GetAxis(SteamVR_Input_Sources.RightHand) > FireThreshold && !justFired && interactable.attachedToHand != null)
-        {
-            justFired = true;
-            GameObject bullet = Instantiate(Ammo, Firepoint.transform.position, Firepoint.transform.rotation);
-            bullet.GetComponent<Bullet>().Damage += Damage;
-            bullet.GetComponent<Rigidbody>().AddRelativeForce(Vector3.forward * FireForce * 1000);
-        }
-        if ((TrigInput.GetAxis(SteamVR_Input_Sources.RightHand) == 0 || TrigInput.GetAxis(SteamVR_Input_Sources.RightHand) < FireThreshold) && interactable.attachedToHand != null)
-        {
-            justFired = false;
-        }
-        if ((TrigInput.GetAxis(SteamVR_Input_Sources.LeftHand) == 0 || TrigInput.GetAxis(SteamVR_Input_Sources.LeftHand) < FireThreshold) && interactable.attachedToHand != null)
-        {
-            justFired = false;
+            SteamVR_Input_Sources source = interactable.attachedToHand.handType;
+            if(TrigInput[source].axis > FireThreshold && !justFired)
+            {
+                justFired = true;
+                GameObject bullet = Instantiate(Ammo, Firepoint.transform.position, Firepoint.transform.rotation);
+                bullet.GetComponent<Bullet>().SetOwner(gameObject);
+                bullet.GetComponent<Bullet>().Damage += Damage;
+                bullet.GetComponent<Rigidbody>().AddRelativeForce(Vector3.forward * FireForce * 1000);
+            }
+            if(TrigInput[source].axis == 0 || TrigInput[source].axis < FireThreshold)
+            {
+                justFired = false;
+            }
         }
     }
 }

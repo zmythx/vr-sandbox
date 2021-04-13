@@ -38,12 +38,20 @@ public class Bullet : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        collision.transform.GetComponent<Enemy>().TakeDamage(Damage, bulType.ToString());
         
+        //stupid lightning palm cast stop
         if(owner != null)
         {
             owner.SendMessage("StopAllCasting");
         }
-        Destroy(transform.gameObject);
+        if(collision.gameObject.tag == "Enemy")
+        {
+            collision.transform.GetComponent<Enemy>().TakeDamage(Damage, bulType.ToString());
+        }
+        if(!collision.gameObject == owner)
+        {
+            Destroy(transform.gameObject);
+        }
+        
     }
 }
