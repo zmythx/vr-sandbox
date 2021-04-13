@@ -7,6 +7,21 @@ public class Bullet : MonoBehaviour
     // Start is called before the first frame update
     public float Damage = 1;
     private GameObject owner;
+    public enum BulletType
+    {
+        None,
+        Fire,
+        Water,
+        Earth,
+        Air,
+        Lightning,
+        Holy,
+        Unholy,
+        Gaia,
+        Galaxy,
+        Legendary
+    }
+    public BulletType bulType;
     public void SetOwner(GameObject obje)
     {
         owner = obje;
@@ -23,7 +38,8 @@ public class Bullet : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        collision.transform.GetComponent<Enemy>().TakeDamage(Damage);
+        collision.transform.GetComponent<Enemy>().TakeDamage(Damage, bulType.ToString());
+        
         if(owner != null)
         {
             owner.SendMessage("StopAllCasting");

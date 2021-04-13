@@ -32,11 +32,27 @@ public class PlayerControllerMovement : MonoBehaviour
   //  private bool passedTimeThreshold = true;
   //  private float timeThresholdSinceLastJump = 0;
 
+    bool isTouchingKillzone()
+    {
+        int layermask = 1 << 15;
+        return Physics.Raycast(transform.position, -Vector3.up, playerCollider.bounds.extents.y + 0.1f, layermask);
+    }
     bool isGrounded()
     {
-        return Physics.Raycast(transform.position, -Vector3.up, playerCollider.bounds.extents.y + 0.1f);
+        int layermask = 1 << 15;
+        layermask = ~layermask;
+        return Physics.Raycast(transform.position, -Vector3.up, playerCollider.bounds.extents.y + 0.1f, layermask);
     }
-
+    bool isCollidingWithGround()
+    {
+        int layermask = 1 << 15;
+        layermask = ~layermask;
+        if(isGrounded() && Physics.Raycast(transform.position, -Vector3.up, playerCollider.bounds.extents.y + 0.095f, layermask))
+        {
+            return true;
+        }
+        return false;
+    }
     private CharacterController characterController;
     // Update is called once per frame
     private void Start()
@@ -47,8 +63,24 @@ public class PlayerControllerMovement : MonoBehaviour
     }
     void Update()
     {
+        if(isTouchingKillzone())
+        {
+            characterController.enabled = false;
+            characterController.transform.position = new Vector3(0, 10, 0);
+            characterController.enabled = true;
+        }
+        characterController.enabled = false;
+        while (isCollidingWithGround())
+        {
+            
+            Debug.Log("Pushing Up...");
+            characterController.transform.position = new Vector3(transform.position.x, transform.position.y + 0.005f, transform.position.z);
+            Debug.Log(transform.position);
+        }
+        characterController.enabled = true;
+        //  Debug.Log("Made it!");
 
-        if(isGrounded())
+        if (isGrounded())
         {
             isJumping = false;
         }
