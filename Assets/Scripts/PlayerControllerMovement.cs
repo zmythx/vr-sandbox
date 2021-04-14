@@ -73,9 +73,9 @@ public class PlayerControllerMovement : MonoBehaviour
         while (isCollidingWithGround())
         {
             
-            Debug.Log("Pushing Up...");
+      //      Debug.Log("Pushing Up...");
             characterController.transform.position = new Vector3(transform.position.x, transform.position.y + 0.005f, transform.position.z);
-            Debug.Log(transform.position);
+        //    Debug.Log(transform.position);
         }
         characterController.enabled = true;
         //  Debug.Log("Made it!");

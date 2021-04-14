@@ -16,6 +16,10 @@ public class Gun : MonoBehaviour
     public float RecoilAmount;
     public float FireRate;
     public float FireForce;
+    private float FirePerSec;
+    private float stopWatch;
+
+    public GameObject Grip;
 
     public Mesh UnloadedMesh;
     public Mesh LoadedMesh;
@@ -39,6 +43,16 @@ public class Gun : MonoBehaviour
         CurrentAmmo = MaxAmmo;
         justFired = false;
         interactable = transform.GetComponent<Interactable>();
+        if (FireRate > 0)
+        {
+            FirePerSec = 1f / FireRate;
+        }
+        else
+        {
+            FirePerSec = 0;
+        }
+        stopWatch = 0;
+        
     }
 
     // Update is called once per frame
@@ -54,10 +68,24 @@ public class Gun : MonoBehaviour
                 bullet.GetComponent<Bullet>().SetOwner(gameObject);
                 bullet.GetComponent<Bullet>().Damage += Damage;
                 bullet.GetComponent<Rigidbody>().AddRelativeForce(Vector3.forward * FireForce * 1000);
+                stopWatch = 0;
+
             }
             if(TrigInput[source].axis == 0 || TrigInput[source].axis < FireThreshold)
             {
                 justFired = false;
+            }
+            if(FullyAutomatic && stopWatch > FirePerSec && justFired)
+            {
+                justFired = false;
+            }
+            if (FullyAutomatic)
+            {
+                stopWatch += Time.deltaTime;
+            }
+            if (Grip != null && Grip.GetComponent<Interactable>() != null)
+            {
+                Grip.GetComponent<Interactable>().enabled = true;
             }
         }
     }

@@ -64,6 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Enemies\Scripts\Enemy.cs" />
+    <Compile Include="Assets\ImmovableInteractable.cs" />
     <Compile Include="Assets\Prepackaged Assets\EffectExamples\Misc Effects\Scripts\SpawnEffect.cs" />
     <Compile Include="Assets\Prepackaged Assets\NatureStarterKit2\Standard Assets\Effects\ImageEffects\Scripts\Antialiasing.cs" />
     <Compile Include="Assets\Prepackaged Assets\NatureStarterKit2\Standard Assets\Effects\ImageEffects\Scripts\Bloom.cs" />
@@ -131,6 +132,7 @@
     <Compile Include="Assets\Shared\Scripts\SimpleCharacterMotor.cs" />
     <Compile Include="Assets\SpaceshipGameObjectGenerator.cs" />
     <Compile Include="Assets\SpaceshipLevelGenerator.cs" />
+    <Compile Include="Assets\TwoHandedInteractable.cs" />
     <None Include="Assets\Prepackaged Assets\NatureStarterKit2\Standard Assets\Effects\GlassRefraction\Shaders\GlassStainedBumpDistort.shader" />
     <None Include="Assets\Prepackaged Assets\NatureStarterKit2\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlendOneOne.shader" />
     <None Include="Assets\Prepackaged Assets\NatureStarterKit2\Standard Assets\Effects\ImageEffects\Shaders\NoiseEffectShaderRGB.shader" />

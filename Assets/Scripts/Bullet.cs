@@ -47,6 +47,7 @@ public class Bullet : MonoBehaviour
         if(collision.gameObject.tag == "Enemy")
         {
             collision.transform.GetComponent<Enemy>().TakeDamage(Damage, bulType.ToString());
+            Destroy(transform.gameObject);
         }
         if(!collision.gameObject == owner)
         {
