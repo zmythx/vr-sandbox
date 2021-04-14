@@ -19,7 +19,7 @@ public class MeleeWeapon : MonoBehaviour
         Galaxy,
         Legendary
     }
-    public MeshCollider Hitbox;
+
     public WeaponType WepType;
     // Start is called before the first frame update
     void Start()
@@ -34,10 +34,10 @@ public class MeleeWeapon : MonoBehaviour
     }
     void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("On Collision Enter!");
+      //  Debug.Log("On Collision Enter!");
         if(collision.gameObject.tag == "Enemy")
         {
-            Debug.Log("Found enemy through collision!");
+         //   Debug.Log("Found enemy through collision!");
             Physics.IgnoreCollision(collision.collider, GetComponent<Collider>());
             
         }
@@ -45,11 +45,11 @@ public class MeleeWeapon : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("On Trigger Enter!");
+      //  Debug.Log("On Trigger Enter!");
         if(other.tag == "Enemy")
         {
-            Debug.Log("Found enemy through trigger!");
-            other.transform.GetComponent<Enemy>().TakeDamage(Damage);
+      //      Debug.Log("Found enemy through trigger!");
+            other.transform.GetComponent<Enemy>().TakeDamage(Damage, WepType.ToString());
         }
     }
 }

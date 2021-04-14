@@ -40,7 +40,11 @@ public class Bullet : MonoBehaviour
     {
         
         //stupid lightning palm cast stop
-        if(owner != null)
+        if(collision.gameObject == owner)
+        {
+            Physics.IgnoreCollision(collision.collider, GetComponent<Collider>());
+        }
+        if(owner != null && owner.tag == "Player")
         {
             owner.SendMessage("StopAllCasting");
         }

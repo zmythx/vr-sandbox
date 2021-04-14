@@ -11,14 +11,16 @@ legendary
 
 > = 2x weakness, 2x resistance
 ~> = 1.2x weakness, 1.2x resistance
+
 water > fire
-fire > earth
-earth > air
+fire > gaia
+gaia > air
+air > earth
+earth > electricity
 electricity > water
-air > water
+
 holy > unholy
 unholy > holy
 elementals >~ holy and unholy
-holy and unholy >~ gaia
-gaia ~> elementals
+
 legendary ~> all
