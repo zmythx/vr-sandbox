@@ -140,6 +140,7 @@
     <Compile Include="Assets\SteamVR\InteractionSystem\Core\Scripts\Interactable.cs" />
     <Compile Include="Assets\SteamVR\InteractionSystem\Core\Scripts\InteractableDebug.cs" />
     <Compile Include="Assets\SteamVR\InteractionSystem\Core\Scripts\InteractableHoverEvents.cs" />
+    <Compile Include="Assets\SteamVR\InteractionSystem\Core\Scripts\InteractableTwoHands.cs" />
     <Compile Include="Assets\SteamVR\InteractionSystem\Core\Scripts\ItemPackage.cs" />
     <Compile Include="Assets\SteamVR\InteractionSystem\Core\Scripts\ItemPackageReference.cs" />
     <Compile Include="Assets\SteamVR\InteractionSystem\Core\Scripts\ItemPackageSpawner.cs" />

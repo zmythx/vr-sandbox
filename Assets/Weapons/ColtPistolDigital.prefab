@@ -215,14 +215,21 @@ MonoBehaviour:
   RecoilAmount: 0
   FireRate: 0
   FireForce: 0
+  Grip: {fileID: 0}
   UnloadedMesh: {fileID: 0}
   LoadedMesh: {fileID: 0}
   ClipLoaded: 0
   UnloadButton:
     actionPath: 
     needsReinit: 0
+  HapticsVibe:
+    actionPath: /actions/default/out/Haptic
+    needsReinit: 0
   AmmoType: 
+  OverridesAmmoType: 0
   FullyAutomatic: 0
+  ItemDescription: 
+  ItemCost: 0
 --- !u!114 &6061949677394469807
 MonoBehaviour:
   m_ObjectHideFlags: 0

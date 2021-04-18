@@ -19,11 +19,15 @@ public class PlayerStatManagement : MonoBehaviour
     public float healthRegen = 0;
     public float mHealth;
     public float mMana = 0;
+    public int Gold = 0;
 
     public int chargeState = 0;
-
-
     public Text gameText;
+
+    public void AddGold(int gold)
+    {
+
+    }
 
     void Start()
     {

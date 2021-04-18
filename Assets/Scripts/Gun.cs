@@ -26,6 +26,7 @@ public class Gun : MonoBehaviour
 
     public bool ClipLoaded;
     public SteamVR_Action_Boolean UnloadButton;
+    public SteamVR_Action_Vibration HapticsVibe;
 
     public string AmmoType;
     public bool OverridesAmmoType;
@@ -35,6 +36,8 @@ public class Gun : MonoBehaviour
     public bool FullyAutomatic;
 
     private bool justFired;
+    public string ItemDescription;
+    public int ItemCost;
 
 
     // Start is called before the first frame update
@@ -63,6 +66,7 @@ public class Gun : MonoBehaviour
             SteamVR_Input_Sources source = interactable.attachedToHand.handType;
             if(TrigInput[source].axis > FireThreshold && !justFired)
             {
+                HapticsVibe.Execute(0, 0.1f, 4, 0.8f, source);
                 justFired = true;
                 GameObject bullet = Instantiate(Ammo, Firepoint.transform.position, Firepoint.transform.rotation);
                 bullet.GetComponent<Bullet>().SetOwner(gameObject);
