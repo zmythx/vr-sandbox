@@ -53,10 +53,9 @@ public class SpaceshipGameObjectGenerator : MonoBehaviour
     private int hallwayLength;
     private int hallwayLengthVariation = 1;
 
-
-    void Start()
+    void OldRoomGenFunction()
     {
-        switch(GenerateHeightVariation.ToString())
+        switch (GenerateHeightVariation.ToString())
         {
             case "Small":
                 roomHeightVariation = 1;
@@ -68,7 +67,7 @@ public class SpaceshipGameObjectGenerator : MonoBehaviour
                 roomHeightVariation = 5;
                 break;
         }
-        switch(GenerateRoomSize.ToString())
+        switch (GenerateRoomSize.ToString())
         {
             case "Small":
                 roomSize = 3;
@@ -85,7 +84,7 @@ public class SpaceshipGameObjectGenerator : MonoBehaviour
                 break;
 
         }
-        switch(GenerateHallwayLength.ToString())
+        switch (GenerateHallwayLength.ToString())
         {
             case "Small":
                 hallwayLength = 3;
@@ -102,7 +101,7 @@ public class SpaceshipGameObjectGenerator : MonoBehaviour
                 break;
 
         }
-        switch(GenerateRoomHeight.ToString())
+        switch (GenerateRoomHeight.ToString())
         {
             case "Small":
                 roomHeight = 1;
@@ -123,7 +122,7 @@ public class SpaceshipGameObjectGenerator : MonoBehaviour
         GameMapArray = new int[arraySize, arraySize];
         GameMapDescription = new string[arraySize, arraySize];
         System.Random rnd = new System.Random();
-        for(int i = 0; i < arraySize; i++)
+        for (int i = 0; i < arraySize; i++)
         {
             for (int j = 0; j < arraySize; j++)
             {
@@ -131,14 +130,14 @@ public class SpaceshipGameObjectGenerator : MonoBehaviour
                 GameMapDescription[i, j] = "Empty";
             }
         }
-        for(int i = 0; i < RoomsToGenerate; i++)
+        for (int i = 0; i < RoomsToGenerate; i++)
         {
             int roomXstart = rnd.Next(0, arraySize - 1);
             int roomYstart = rnd.Next(0, arraySize - 1);
             int roomHeightGen = rnd.Next(roomHeight, roomHeightVariation + roomHeight);
             int roomXsize = roomSize + rnd.Next(0, roomSizeVariation);
             int roomYsize = roomSize + rnd.Next(0, roomSizeVariation);
-            while(!CheckIfValidRoomPlacement(GameMapArray, GenerateRoom(roomXsize, roomYsize, roomHeightGen), roomXstart, roomYstart))
+            while (!CheckIfValidRoomPlacement(GameMapArray, GenerateRoom(roomXsize, roomYsize, roomHeightGen), roomXstart, roomYstart))
             {
                 roomXstart = rnd.Next(0, arraySize - 1);
                 roomYstart = rnd.Next(0, arraySize - 1);
@@ -149,10 +148,10 @@ public class SpaceshipGameObjectGenerator : MonoBehaviour
             AddRoom(GameMapArray, GenerateRoom(roomXsize, roomYsize, roomHeightGen), roomXstart, roomYstart, roomHeightGen, GameMapDescription);
         }
         StringBuilder sb = new StringBuilder();
-        for(int i = 0; i < arraySize; i++)
+        for (int i = 0; i < arraySize; i++)
         {
             sb.AppendLine();
-            for(int j = 0; j < arraySize; j++)
+            for (int j = 0; j < arraySize; j++)
             {
                 sb.Append(GameMapArray[i, j].ToString());
             }
@@ -170,6 +169,14 @@ public class SpaceshipGameObjectGenerator : MonoBehaviour
         Debug.Log(sb.ToString());
         DrawFloors(GameMapArray);
         DrawCeilings(GameMapArray);
+    }    
+    void IzakRoomGen()
+    {
+
+    }
+    void Start()
+    {
+        
 
     }
     private int[,] AddRoom(int[,] GameMap, int[,] RoomToAdd, int xStart, int yStart, int Height, string[,] GameMapDesc)
