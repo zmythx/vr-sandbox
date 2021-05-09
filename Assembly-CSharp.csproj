@@ -132,10 +132,12 @@
     <Compile Include="Assets\Shared\Scripts\SimpleCameraController.cs" />
     <Compile Include="Assets\Shared\Scripts\SimpleCharacterMotor.cs" />
     <Compile Include="Assets\ShopDisplay.cs" />
+    <Compile Include="Assets\SniperScope.cs" />
     <Compile Include="Assets\SpaceshipGameObjectGenerator.cs" />
     <Compile Include="Assets\SpaceshipLevelGenerator.cs" />
     <Compile Include="Assets\TwoHandedInteractable.cs" />
     <Compile Include="Assets\UIElementShopButton.cs" />
+    <Compile Include="Assets\UIElementSpawnEnemy.cs" />
     <None Include="Assets\Prepackaged Assets\NatureStarterKit2\Standard Assets\Effects\GlassRefraction\Shaders\GlassStainedBumpDistort.shader" />
     <None Include="Assets\Prepackaged Assets\NatureStarterKit2\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlendOneOne.shader" />
     <None Include="Assets\Prepackaged Assets\NatureStarterKit2\Standard Assets\Effects\ImageEffects\Shaders\NoiseEffectShaderRGB.shader" />
