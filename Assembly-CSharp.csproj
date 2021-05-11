@@ -64,6 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Enemies\Scripts\Enemy.cs" />
+    <Compile Include="Assets\HoverBotScript.cs" />
     <Compile Include="Assets\ImmovableInteractable.cs" />
     <Compile Include="Assets\Prepackaged Assets\EffectExamples\Misc Effects\Scripts\SpawnEffect.cs" />
     <Compile Include="Assets\Prepackaged Assets\NatureStarterKit2\Standard Assets\Effects\ImageEffects\Scripts\Antialiasing.cs" />
@@ -110,6 +111,7 @@
     <Compile Include="Assets\Scripts\Bullet.cs" />
     <Compile Include="Assets\Scripts\ChildScaler.cs" />
     <Compile Include="Assets\Scripts\DestroyAfterXSeconds.cs" />
+    <Compile Include="Assets\Scripts\EnemyBullet.cs" />
     <Compile Include="Assets\Scripts\Gun.cs" />
     <Compile Include="Assets\Scripts\Killbox.cs" />
     <Compile Include="Assets\Scripts\MeleeWeapon.cs" />

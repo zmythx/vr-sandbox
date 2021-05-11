@@ -29,6 +29,22 @@ public class PlayerStatManagement : MonoBehaviour
 
     }
 
+    public void TakeDamage(float damage, string damType)
+    {
+        health -= damage;
+        if(health < 0)
+        {
+            Death();
+        }
+    }
+
+    void Death()
+    {
+        transform.position = new Vector3(0, 100, 0);
+        health = mHealth;
+        mana = mMana;
+    }
+
     void Start()
     {
         pfm = player.GetComponent<PlayerFingerManagement>();
