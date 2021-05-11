@@ -66,7 +66,7 @@ public class Gun : MonoBehaviour
             SteamVR_Input_Sources source = interactable.attachedToHand.handType;
             if(TrigInput[source].axis > FireThreshold && !justFired)
             {
-                HapticsVibe.Execute(0, 0.1f, 4, 0.8f, source);
+               // HapticsVibe.Execute(0.001f, 0.1f, 4, 0.8f, source);
                 justFired = true;
                 GameObject bullet = Instantiate(Ammo, Firepoint.transform.position, Firepoint.transform.rotation);
                 bullet.GetComponent<Bullet>().SetOwner(gameObject);
