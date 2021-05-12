@@ -72,10 +72,10 @@ public class RaycastGun : MonoBehaviour
                 // HapticsVibe.Execute(0.001f, 0.1f, 4, 0.8f, source);
                 justFired = true;
                 RaycastHit hit;
-                Instantiate(lineRef);
                 LineRenderer line = lineRef.GetComponent<LineRenderer>();
                 line.SetPosition(0, Firepoint.transform.position);
-                line.SetPosition(1, Firepoint.transform.position + Firepoint.transform.forward * 10);
+                line.SetPosition(1, Firepoint.transform.position + Firepoint.transform.forward * 10 * FireForce);
+                Instantiate(lineRef);
                 if (Physics.Raycast(Firepoint.transform.position, Firepoint.transform.TransformDirection(Vector3.forward), out hit, FireForce * 10))
                 {
                     if(hit.transform.tag == "Enemy")

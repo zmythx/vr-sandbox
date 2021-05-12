@@ -15,7 +15,7 @@ public class SniperScope : MonoBehaviour
     public GameObject FirePoint;
     void Start()
     {
-        
+        Reticle.GetComponent<Renderer>().material.SetColor("_Color", ReticleColor);
     }
 
     // Update is called once per frame
@@ -42,9 +42,5 @@ public class SniperScope : MonoBehaviour
                 Reticle.GetComponent<Renderer>().material.SetColor("_Color", ReticleColor);
             }    
         }
-        else
-        {
-            Reticle.GetComponent<Renderer>().material.SetColor("_Color", ReticleColor);
-        }    
     }
 }
