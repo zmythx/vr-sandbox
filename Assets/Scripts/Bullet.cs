@@ -40,23 +40,28 @@ public class Bullet : MonoBehaviour
     {
         
         //stupid lightning palm cast stop
+        
+        
+    }
+    private void OnTriggerEnter(Collider collision)
+    {
         if(collision.gameObject == owner)
         {
-            Physics.IgnoreCollision(collision.collider, GetComponent<Collider>());
+            Physics.IgnoreCollision(collision, GetComponent<Collider>());
         }
-        if(owner != null && owner.tag == "Player")
+        if (owner != null && owner.tag == "Player")
         {
             owner.SendMessage("StopAllCasting");
         }
-        if(collision.gameObject.tag == "Enemy")
+        if (collision.gameObject.tag == "Enemy")
         {
             collision.transform.GetComponent<Enemy>().TakeDamage(Damage, bulType.ToString());
             Destroy(transform.gameObject);
         }
-        if(!collision.gameObject == owner)
+        if (!collision.gameObject == owner)
         {
             Destroy(transform.gameObject);
         }
-        
+
     }
 }

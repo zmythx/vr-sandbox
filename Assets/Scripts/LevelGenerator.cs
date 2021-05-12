@@ -23,20 +23,27 @@ public class LevelGenerator : MonoBehaviour
     bool DoorNorth;
     int DoorPlace;
 
+    
+    public GameObject DebugEnemy;
+    public int DebugEnemySpawns = 5;
+    public bool DebugMode;
+
+    public int AssetSquareSize = 4;
+
     // Start is called before the first frame update
     void Start()
     {
         GenerateInitialRoom();
         if(DoorNorth)
         {
-            YOffset = RoomY*2;
-            XOffset += DoorPlace*2;
+            YOffset = RoomY * AssetSquareSize;
+            XOffset += DoorPlace * AssetSquareSize;
             
         }
         else
         {
-            XOffset = RoomX * 2;
-            YOffset += DoorPlace * 2;
+            XOffset = RoomX * AssetSquareSize;
+            YOffset += DoorPlace * AssetSquareSize;
         }
 
         for(int i = 0; i < NumberOfRoomsToGenerate - 1; i++)
@@ -44,24 +51,35 @@ public class LevelGenerator : MonoBehaviour
             bool newDoorNorth = (Random.Range(0f, 1f) > 0.5f);
             RoomX = Random.Range(MinimumRoomSize, MaximumRoomSize + 1);
             RoomY = Random.Range(MinimumRoomSize, MaximumRoomSize + 1);
-            RoomZ = Random.Range(MinimumRoomSize, MaximumRoomSize + 1);
+            RoomZ = Random.Range(MinimumCeiling, MaximumCeiling + 1);
             Room newRoom = new Room(XOffset, YOffset, RoomX, RoomY, RoomZ,
-                Floor, Wall, Ceiling, newDoorNorth, DoorNorth);
+                Floor, Wall, Ceiling, newDoorNorth, DoorNorth, AssetSquareSize);
             newRoom.DrawSelf();
             DoorPlace = newRoom.ReturnDoorPlace();
             YOffset = newRoom.ReturnOffsetY();
             XOffset = newRoom.ReturnOffsetX();
+            int xOldOffset = XOffset;
+            int yOldOffset = YOffset;
+            
             if(newDoorNorth)
             {
-                YOffset += RoomY * 2;
-                XOffset += DoorPlace * 2;
+                YOffset += RoomY * AssetSquareSize;
+                XOffset += DoorPlace * AssetSquareSize;
             }
             else
             {
-                XOffset += RoomX * 2;
-                YOffset += DoorPlace * 2;
+                XOffset += RoomX * AssetSquareSize;
+                YOffset += DoorPlace * AssetSquareSize;
             }
             DoorNorth = newDoorNorth;
+            if (DebugMode && i == 0)
+            {
+                for (int j = 0; j < DebugEnemySpawns; j++)
+                {
+                    GameObject debugEnemy = Instantiate(DebugEnemy);
+                    debugEnemy.transform.position = new Vector3(Random.Range(xOldOffset + 0.5f, XOffset - 0.5f), Random.Range(0.5f, RoomZ * AssetSquareSize - AssetSquareSize), Random.Range(yOldOffset + 0.5f, YOffset - 0.5f));
+                }
+            }
 
         }
     }
@@ -96,13 +114,13 @@ public class LevelGenerator : MonoBehaviour
             for (int j = 0; j < RoomY; j++)
             {
                 GameObject floorDraw = Instantiate(Floor);
-                floorDraw.transform.position = new Vector3(i * 2, 0, j * 2);
+                floorDraw.transform.position = new Vector3(i * AssetSquareSize, 0, j * AssetSquareSize);
                 if (i == 0) // west walls
                 {
                     for (int k = 0; k < RoomZ; k++)
                     {
                         GameObject wallDraw = Instantiate(Wall);
-                        wallDraw.transform.position = new Vector3(i * 2, k * 2, j * 2);
+                        wallDraw.transform.position = new Vector3(i * AssetSquareSize, k * AssetSquareSize, j * AssetSquareSize);
                         wallDraw.transform.Rotate(0, 90, 0);
                     }
                 }
@@ -110,7 +128,7 @@ public class LevelGenerator : MonoBehaviour
                     for (int k = 0; k < RoomZ; k++)
                     {
                         GameObject wallDraw = Instantiate(Wall);
-                        wallDraw.transform.position = new Vector3(i * 2, k * 2, j * 2);
+                        wallDraw.transform.position = new Vector3(i * AssetSquareSize, k * AssetSquareSize, j * AssetSquareSize);
                         wallDraw.transform.Rotate(0, 0, 0);
                     }
                 if (i == RoomX - 1)
@@ -120,7 +138,7 @@ public class LevelGenerator : MonoBehaviour
                         if (DoorNorth || (!DoorNorth && j + 1 != DoorPlace) || k!=0)
                         {
                             GameObject wallDraw = Instantiate(Wall);
-                            wallDraw.transform.position = new Vector3(i * 2, k * 2, j * 2);
+                            wallDraw.transform.position = new Vector3(i * AssetSquareSize, k * AssetSquareSize, j * AssetSquareSize);
                             wallDraw.transform.Rotate(0, 270, 0);
                         }
                     }
@@ -132,13 +150,13 @@ public class LevelGenerator : MonoBehaviour
                         if (!DoorNorth || (DoorNorth && i + 1 != DoorPlace) || k!=0)
                         {
                             GameObject wallDraw = Instantiate(Wall);
-                            wallDraw.transform.position = new Vector3(i * 2, k * 2, j * 2);
+                            wallDraw.transform.position = new Vector3(i * AssetSquareSize, k * AssetSquareSize, j * AssetSquareSize);
                             wallDraw.transform.Rotate(0, 180, 0);
                         }
                     }
                 }
                 GameObject ceilDraw = Instantiate(Ceiling);
-                ceilDraw.transform.position = new Vector3(i * 2, (RoomZ - 1) * 2, j * 2);
+                ceilDraw.transform.position = new Vector3(i * AssetSquareSize, (RoomZ - 1) * AssetSquareSize, j * AssetSquareSize);
 
             }
         }

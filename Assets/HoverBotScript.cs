@@ -26,6 +26,7 @@ public class HoverBotScript : MonoBehaviour
     public GameObject FirePoint2;
     public int bulletShotSpeed;
     bool Fire1;
+    private Transform playerHitbox;
 
     // Start is called before the first frame update
     void Start()
@@ -38,11 +39,20 @@ public class HoverBotScript : MonoBehaviour
         State = "patrol";
         lastState = "patrol";
         nextTarget = new GameObject("TravelPoint");
+        playerHitbox = player.transform.Find("SteamVRObjects").transform.Find("VRCamera");
        // nextTarget.transform.parent = this.gameObject.transform;
         t = 0;
         Fire1 = true;
     }
+    void FixedUpdate()
+    {
+        if (State == "patrolMove")
+        {
 
+            GetComponent<Rigidbody>().velocity = transform.forward * Speed;
+        }
+
+    }
     // Update is called once per frame
     void Update()
     {
@@ -74,25 +84,25 @@ public class HoverBotScript : MonoBehaviour
         {
             t = 0;
             startPos = transform.position;
-            nextTarget.transform.position = new Vector3(origPos.x + Random.Range(0, flyingRadius), origPos.y + Random.Range(0, flyingRadius), origPos.z + Random.Range(0, flyingRadius));
+            nextTarget.transform.position = new Vector3(origPos.x + (Random.Range(0, flyingRadius)*2) - flyingRadius, origPos.y + (Random.Range(0, flyingRadius) * 2) - flyingRadius, origPos.z + (Random.Range(0, flyingRadius) * 2) - flyingRadius);
             nextTargetCoords = nextTarget.transform.position;
-            Debug.Log("Setting new target");
+          //  Debug.Log("Setting new target");
             State = "patrolMove";
         }
-        if(State == "patrolMove")
+        if (State == "patrolMove")
         {
             nextTarget.transform.position = nextTargetCoords;
             transform.LookAt(nextTarget.transform);
             nextTarget.transform.position = nextTargetCoords;
             t += Time.deltaTime / timeToReachTarget;
-            transform.position = Vector3.Lerp(startPos, nextTarget.transform.position, t);
             if (t >= 1)
             {
+                GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
                 t = 0;
                 State = "patrolWait";
             }
         }
-        if(State == "patrolWait")
+        if (State == "patrolWait")
         {
             t += Time.deltaTime / HoverTimeBetweenTargets;
             if (t >= 1)
@@ -128,12 +138,12 @@ public class HoverBotScript : MonoBehaviour
                 }
                 GameObject newBullet = Instantiate(bullet);
                 newBullet.transform.position = newBulletPos;
-                newBullet.transform.LookAt(player.transform);
+                newBullet.transform.LookAt(playerHitbox);
                 newBullet.GetComponent<Rigidbody>().AddForce((transform.forward * bulletShotSpeed));
                 newBullet.GetComponent<EnemyBullet>().SetOwner(gameObject);
                 Fire1 = !Fire1;
             }
         }
-        Debug.Log(State);
+     //   Debug.Log(State);
     }
 }

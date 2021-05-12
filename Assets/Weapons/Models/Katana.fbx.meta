@@ -28,7 +28,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Hilt
-    second: {fileID: 2100006, guid: 5afa36f19a31c1647a37fa1eb81c5373, type: 3}
+    second: {fileID: 2100000, guid: 23452fe5004becc42912822485f272c4, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule

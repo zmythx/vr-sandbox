@@ -29,8 +29,10 @@ public class PlayerStatManagement : MonoBehaviour
 
     }
 
-    public void TakeDamage(float damage, string damType)
+    public void TakeDamage(object[] args)
     {
+        float damage = (float)args[0];
+        string damType = args[1].ToString();
         health -= damage;
         if(health < 0)
         {
@@ -40,7 +42,7 @@ public class PlayerStatManagement : MonoBehaviour
 
     void Death()
     {
-        transform.position = new Vector3(0, 100, 0);
+        transform.position = new Vector3(1, 3, 0);
         health = mHealth;
         mana = mMana;
     }

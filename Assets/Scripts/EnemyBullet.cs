@@ -45,13 +45,28 @@ public class EnemyBullet : MonoBehaviour
         }
         if(collision.gameObject.tag == "Player")
         {
-            collision.transform.GetComponent<PlayerStatManagement>().TakeDamage(Damage, bulType.ToString());
-            Destroy(transform.gameObject);
+            Physics.IgnoreCollision(collision.collider, GetComponent<Collider>());
         }
         if(!collision.gameObject == owner)
         {
             Destroy(transform.gameObject);
         }
         
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "Player")
+        {
+            object[] args = new object[2];
+            args[0] = Damage;
+            args[1] = bulType.ToString();
+            other.gameObject.SendMessageUpwards("TakeDamage", args);
+            Destroy(transform.gameObject);
+            Debug.Log("Damage?");
+        }
+        else if (other.gameObject != owner)
+        {
+            Destroy(transform.gameObject);
+        }    
     }
 }

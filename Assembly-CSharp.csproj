@@ -65,7 +65,6 @@
   <ItemGroup>
     <Compile Include="Assets\Enemies\Scripts\Enemy.cs" />
     <Compile Include="Assets\HoverBotScript.cs" />
-    <Compile Include="Assets\ImmovableInteractable.cs" />
     <Compile Include="Assets\Prepackaged Assets\EffectExamples\Misc Effects\Scripts\SpawnEffect.cs" />
     <Compile Include="Assets\Prepackaged Assets\NatureStarterKit2\Standard Assets\Effects\ImageEffects\Scripts\Antialiasing.cs" />
     <Compile Include="Assets\Prepackaged Assets\NatureStarterKit2\Standard Assets\Effects\ImageEffects\Scripts\Bloom.cs" />
@@ -113,7 +112,9 @@
     <Compile Include="Assets\Scripts\DestroyAfterXSeconds.cs" />
     <Compile Include="Assets\Scripts\EnemyBullet.cs" />
     <Compile Include="Assets\Scripts\Gun.cs" />
+    <Compile Include="Assets\Scripts\ImmovableInteractable.cs" />
     <Compile Include="Assets\Scripts\Killbox.cs" />
+    <Compile Include="Assets\Scripts\LevelGenerator.cs" />
     <Compile Include="Assets\Scripts\MeleeWeapon.cs" />
     <Compile Include="Assets\Scripts\MoveBetweenTwoPoints.cs" />
     <Compile Include="Assets\Scripts\PlayerControllerAbilityManagement.cs" />
@@ -124,22 +125,25 @@
     <Compile Include="Assets\Scripts\PlayerStatManagement.cs" />
     <Compile Include="Assets\Scripts\PlayerUIManagement.cs" />
     <Compile Include="Assets\Scripts\RainbowLights.cs" />
+    <Compile Include="Assets\Scripts\RaycastGun.cs" />
+    <Compile Include="Assets\Scripts\Room.cs" />
     <Compile Include="Assets\Scripts\SecondHand.cs" />
+    <Compile Include="Assets\Scripts\ShopDisplay.cs" />
+    <Compile Include="Assets\Scripts\SniperScope.cs" />
     <Compile Include="Assets\Scripts\TextDisplayDebug.cs" />
+    <Compile Include="Assets\Scripts\TwoHandedInteractable.cs" />
     <Compile Include="Assets\Scripts\UIElement.cs" />
     <Compile Include="Assets\Scripts\UIElementResetMana.cs" />
+    <Compile Include="Assets\Scripts\UIElementShopButton.cs" />
+    <Compile Include="Assets\Scripts\UIElementSpawnEnemy.cs" />
+    <Compile Include="Assets\Scripts\VanishAfterXSeconds.cs" />
     <Compile Include="Assets\Shared\Ramps\Runtime\RampAsset.cs" />
     <Compile Include="Assets\Shared\Scripts\AdjustTimeScale.cs" />
     <Compile Include="Assets\Shared\Scripts\ProximityActivate.cs" />
     <Compile Include="Assets\Shared\Scripts\SimpleCameraController.cs" />
     <Compile Include="Assets\Shared\Scripts\SimpleCharacterMotor.cs" />
-    <Compile Include="Assets\ShopDisplay.cs" />
-    <Compile Include="Assets\SniperScope.cs" />
     <Compile Include="Assets\SpaceshipGameObjectGenerator.cs" />
     <Compile Include="Assets\SpaceshipLevelGenerator.cs" />
-    <Compile Include="Assets\TwoHandedInteractable.cs" />
-    <Compile Include="Assets\UIElementShopButton.cs" />
-    <Compile Include="Assets\UIElementSpawnEnemy.cs" />
     <None Include="Assets\Prepackaged Assets\NatureStarterKit2\Standard Assets\Effects\GlassRefraction\Shaders\GlassStainedBumpDistort.shader" />
     <None Include="Assets\Prepackaged Assets\NatureStarterKit2\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlendOneOne.shader" />
     <None Include="Assets\Prepackaged Assets\NatureStarterKit2\Standard Assets\Effects\ImageEffects\Shaders\NoiseEffectShaderRGB.shader" />
@@ -180,6 +184,7 @@
     <None Include="Assets\Prepackaged Assets\NatureStarterKit2\Standard Assets\Effects\ImageEffects\Shaders\ConvertDepth.shader" />
     <None Include="Assets\Prepackaged Assets\NatureStarterKit2\Standard Assets\Effects\ImageEffects\Shaders\ColorCorrectionCurvesSimple.shader" />
     <None Include="Assets\Prepackaged Assets\NatureStarterKit2\Standard Assets\Effects\ImageEffects\Shaders\NoiseEffectShaderYUV.shader" />
+    <None Include="Assets\Materials\Shaders\CustomShader.shader" />
     <None Include="Assets\Prepackaged Assets\NatureStarterKit2\Standard Assets\Effects\ImageEffects\Shaders\CreaseApply.shader" />
     <None Include="Assets\Prepackaged Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
     <None Include="Assets\Prepackaged Assets\NatureStarterKit2\Standard Assets\Effects\ImageEffects\Shaders\ChromaticAberrationShader.shader" />
@@ -241,11 +246,23 @@
     <Reference Include="Unity.ProGrids">
       <HintPath>C:/Users/Zach/VR Sandbox/Library/ScriptAssemblies/Unity.ProGrids.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.RenderPipelines.Core.Editor">
+      <HintPath>C:/Users/Zach/VR Sandbox/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Core.Runtime">
+      <HintPath>C:/Users/Zach/VR Sandbox/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.ProGrids.Editor">
       <HintPath>C:/Users/Zach/VR Sandbox/Library/ScriptAssemblies/Unity.ProGrids.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>C:/Users/Zach/VR Sandbox/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Lightweight.Runtime">
+      <HintPath>C:/Users/Zach/VR Sandbox/Library/ScriptAssemblies/Unity.RenderPipelines.Lightweight.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Lightweight.Editor">
+      <HintPath>C:/Users/Zach/VR Sandbox/Library/ScriptAssemblies/Unity.RenderPipelines.Lightweight.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PackageManagerUI.Editor">
       <HintPath>C:/Users/Zach/VR Sandbox/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
@@ -258,6 +275,12 @@
     </Reference>
     <Reference Include="Unity.Postprocessing.Runtime">
       <HintPath>C:/Users/Zach/VR Sandbox/Library/ScriptAssemblies/Unity.Postprocessing.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ShaderGraph.Editor">
+      <HintPath>C:/Users/Zach/VR Sandbox/Library/ScriptAssemblies/Unity.ShaderGraph.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Core.ShaderLibrary">
+      <HintPath>C:/Users/Zach/VR Sandbox/Library/ScriptAssemblies/Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
       <HintPath>C:/Users/Zach/VR Sandbox/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
