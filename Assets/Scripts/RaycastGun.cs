@@ -42,6 +42,13 @@ public class RaycastGun : MonoBehaviour
     public GameObject lineRef;
     string bulType = "null";
 
+    string State = "";
+    float t;
+
+    Quaternion fireRotation;
+    Vector3 firePosition;
+    Quaternion newRot;
+    Vector3 newPos;
 
     // Start is called before the first frame update
     void Start()
@@ -64,6 +71,7 @@ public class RaycastGun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        t += Time.deltaTime;
         if (interactable.attachedToHand != null)
         {
             SteamVR_Input_Sources source = interactable.attachedToHand.handType;
@@ -76,12 +84,32 @@ public class RaycastGun : MonoBehaviour
                 line.SetPosition(0, Firepoint.transform.position);
                 line.SetPosition(1, Firepoint.transform.position + Firepoint.transform.forward * 10 * FireForce);
                 Instantiate(lineRef);
+                
                 if (Physics.Raycast(Firepoint.transform.position, Firepoint.transform.TransformDirection(Vector3.forward), out hit, FireForce * 10))
                 {
-                    if(hit.transform.tag == "Enemy")
+                    if (hit.transform.tag == "Enemy")
                     {
                         hit.transform.GetComponent<Enemy>().TakeDamage(Damage, bulType.ToString());
                     }
+                }
+                if (State != "recoil")
+                {
+                    State = "recoil";
+                    t = 0;
+                    firePosition = transform.localPosition;
+                    fireRotation = transform.localRotation;
+                    transform.Rotate(0, RecoilAmount * 10, 0);
+                    transform.localPosition.Set(transform.localPosition.x, transform.localPosition.y + 0.1f, transform.localPosition.z - 0.3f);
+                    newRot = transform.localRotation;
+                    newPos = transform.localPosition;
+                }
+                else
+                {
+                    t = 0;
+                    transform.Rotate(0, RecoilAmount * 10, 0);
+                    transform.localPosition.Set(transform.localPosition.x, transform.localPosition.y + 0.1f, transform.localPosition.z - 0.3f);
+                    newRot = transform.localRotation;
+                    newPos = transform.localPosition;
                 }
                 stopWatch = 0;
 
@@ -102,6 +130,23 @@ public class RaycastGun : MonoBehaviour
             {
                 Grip.GetComponent<Interactable>().enabled = true;
             }
+            if (State == "recoil")
+            {
+                if (t < 1)
+                {
+                    transform.localPosition = Vector3.Lerp(newPos, firePosition, t);
+                    transform.localRotation = Quaternion.Lerp(newRot, fireRotation, t);
+                }
+                if(t >= 1)
+                {
+                    transform.localPosition = firePosition;
+                    transform.localRotation = fireRotation;
+                    State = "";
+                    t = 0;
+                }
+
+            }
         }
     }
+
 }

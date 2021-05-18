@@ -42,5 +42,9 @@ public class SniperScope : MonoBehaviour
                 Reticle.GetComponent<Renderer>().material.SetColor("_Color", ReticleColor);
             }    
         }
+        else
+        {
+            Reticle.GetComponent<Renderer>().material.SetColor("_Color", ReticleColor);
+        }    
     }
 }

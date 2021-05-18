@@ -53,6 +53,8 @@ namespace Valve.VR
         
         private static SteamVR_Action_Boolean p_default_JumpButton;
         
+        private static SteamVR_Action_Boolean p_default_SpellButton;
+        
         private static SteamVR_Action_Vibration p_default_Haptic;
         
         private static SteamVR_Action_Vector2 p_platformer_Move;
@@ -213,6 +215,14 @@ namespace Valve.VR
             }
         }
         
+        public static SteamVR_Action_Boolean default_SpellButton
+        {
+            get
+            {
+                return SteamVR_Actions.p_default_SpellButton.GetCopy<SteamVR_Action_Boolean>();
+            }
+        }
+        
         public static SteamVR_Action_Vibration default_Haptic
         {
             get
@@ -298,6 +308,7 @@ namespace Valve.VR
                     SteamVR_Actions.default_GunFire,
                     SteamVR_Actions.default_TriggerPullThreshold,
                     SteamVR_Actions.default_JumpButton,
+                    SteamVR_Actions.default_SpellButton,
                     SteamVR_Actions.default_Haptic,
                     SteamVR_Actions.platformer_Move,
                     SteamVR_Actions.platformer_Jump,
@@ -325,6 +336,7 @@ namespace Valve.VR
                     SteamVR_Actions.default_GunFire,
                     SteamVR_Actions.default_TriggerPullThreshold,
                     SteamVR_Actions.default_JumpButton,
+                    SteamVR_Actions.default_SpellButton,
                     SteamVR_Actions.platformer_Move,
                     SteamVR_Actions.platformer_Jump,
                     SteamVR_Actions.buggy_Steering,
@@ -352,6 +364,7 @@ namespace Valve.VR
                     SteamVR_Actions.default_TouchPadAbilityClick,
                     SteamVR_Actions.default_GunFire,
                     SteamVR_Actions.default_JumpButton,
+                    SteamVR_Actions.default_SpellButton,
                     SteamVR_Actions.platformer_Jump,
                     SteamVR_Actions.buggy_Brake,
                     SteamVR_Actions.buggy_Reset};
@@ -383,6 +396,7 @@ namespace Valve.VR
                     SteamVR_Actions.default_GunFire,
                     SteamVR_Actions.default_TriggerPullThreshold,
                     SteamVR_Actions.default_JumpButton,
+                    SteamVR_Actions.default_SpellButton,
                     SteamVR_Actions.platformer_Move,
                     SteamVR_Actions.platformer_Jump,
                     SteamVR_Actions.buggy_Steering,
@@ -411,6 +425,7 @@ namespace Valve.VR
             SteamVR_Actions.p_default_GunFire = ((SteamVR_Action_Boolean)(SteamVR_Action.Create<SteamVR_Action_Boolean>("/actions/default/in/GunFire")));
             SteamVR_Actions.p_default_TriggerPullThreshold = ((SteamVR_Action_Single)(SteamVR_Action.Create<SteamVR_Action_Single>("/actions/default/in/TriggerPullThreshold")));
             SteamVR_Actions.p_default_JumpButton = ((SteamVR_Action_Boolean)(SteamVR_Action.Create<SteamVR_Action_Boolean>("/actions/default/in/JumpButton")));
+            SteamVR_Actions.p_default_SpellButton = ((SteamVR_Action_Boolean)(SteamVR_Action.Create<SteamVR_Action_Boolean>("/actions/default/in/SpellButton")));
             SteamVR_Actions.p_default_Haptic = ((SteamVR_Action_Vibration)(SteamVR_Action.Create<SteamVR_Action_Vibration>("/actions/default/out/Haptic")));
             SteamVR_Actions.p_platformer_Move = ((SteamVR_Action_Vector2)(SteamVR_Action.Create<SteamVR_Action_Vector2>("/actions/platformer/in/Move")));
             SteamVR_Actions.p_platformer_Jump = ((SteamVR_Action_Boolean)(SteamVR_Action.Create<SteamVR_Action_Boolean>("/actions/platformer/in/Jump")));

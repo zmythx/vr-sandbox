@@ -10,6 +10,7 @@ public class PlayerControllerAbilityManagement : MonoBehaviour
     public SteamVR_Action_Boolean triggerTouch;
     public SteamVR_Action_Boolean abilityTouch;
     public SteamVR_Action_Boolean actionCast;
+    public SteamVR_Action_Boolean spellTouch;
 
     public Player player;
     private PlayerStatManagement psm;
@@ -18,6 +19,8 @@ public class PlayerControllerAbilityManagement : MonoBehaviour
 
     public Hand rightHand;
     public Hand leftHand;
+
+    public GameObject FireBall;
 
     public GameObject DebugCube;
     private GameObject greenCube; //up cube
@@ -101,7 +104,13 @@ public class PlayerControllerAbilityManagement : MonoBehaviour
     {
         rightHand = player.rightHand;
         leftHand = player.leftHand;
+        if(spellTouch.state && spellTouch.changed)
+        {
+            GameObject fireSpell = Instantiate(FireBall);
+            FireBall.GetComponent<Spell>().SetOwner(transform.gameObject);
+            FireBall.GetComponent<Spell>().SetPositionReference(rightHand.gameObject);
 
+        }
         if (triggerTouch.state)
         {
 

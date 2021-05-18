@@ -17,8 +17,10 @@ public class Room : MonoBehaviour
     public GameObject Floor;
     public GameObject Wall;
     public GameObject Ceiling;
+    public GameObject Door;
+    public GameObject DrawnDoor;
     public int AssetSquareSize;
-    public Room(int offx, int offy, int roomx, int roomy, int roomz, GameObject floor, GameObject wall, GameObject ceiling, bool doornorth, bool prevdoornorth, int assetsize)
+    public Room(int offx, int offy, int roomx, int roomy, int roomz, GameObject floor, GameObject wall, GameObject ceiling, GameObject door, bool doornorth, bool prevdoornorth, int assetsize)
     {
         OffsetX = offx;
         OffsetY = offy;
@@ -28,6 +30,7 @@ public class Room : MonoBehaviour
         Floor = floor;
         Ceiling = ceiling;
         Wall = wall;
+        Door = door;
         DoorNorth = doornorth;
         PreviousDoorNorth = prevdoornorth;
         AssetSquareSize = assetsize;
@@ -114,6 +117,12 @@ public class Room : MonoBehaviour
                             wallDraw.transform.position = new Vector3(i * AssetSquareSize + OffsetX, k * AssetSquareSize, j * AssetSquareSize + OffsetY);
                             wallDraw.transform.Rotate(0, 270, 0);
                         }
+                        if ((!DoorNorth && j + 1 == DoorPlace) && k == 0)
+                        {
+                            DrawnDoor = Instantiate(Door);
+                            DrawnDoor.transform.position = new Vector3(i * AssetSquareSize + OffsetX + 2, k * AssetSquareSize + 1, j * AssetSquareSize + OffsetY);
+                            DrawnDoor.transform.Rotate(0, 270, 0);
+                        }
                     }
                 }
                 if (j == RoomY - 1) //north walls
@@ -125,6 +134,12 @@ public class Room : MonoBehaviour
                             GameObject wallDraw = Instantiate(Wall);
                             wallDraw.transform.position = new Vector3(i * AssetSquareSize + OffsetX, k * AssetSquareSize, j * AssetSquareSize + OffsetY);
                             wallDraw.transform.Rotate(0, 180, 0);
+                        }
+                        if ((DoorNorth && i + 1 == DoorPlace) && k == 0)
+                        {
+                            DrawnDoor = Instantiate(Door);
+                            DrawnDoor.transform.position = new Vector3(i * AssetSquareSize + OffsetX , k * AssetSquareSize + 1, j * AssetSquareSize + OffsetY + 2);
+                            DrawnDoor.transform.Rotate(0, 180, 0);
                         }
                     }
                 }
