@@ -21,6 +21,9 @@ public class PlayerStatManagement : MonoBehaviour
     public float mMana = 0;
     public int Gold = 0;
 
+    public Slider HealthSlider;
+    public Slider ManaSlider;
+
     public int chargeState = 0;
     public Text gameText;
 
@@ -103,6 +106,9 @@ public class PlayerStatManagement : MonoBehaviour
         {
             chargingParticle.SetActive(false);
         }
+        HealthSlider.value = health / mHealth;
+        ManaSlider.value = mana / mMana;
+
     //    gameText.text = string.Format("Health: {0}/{1} Mana: {2}/{3}", health, mHealth, mana, mMana);
     }
 }

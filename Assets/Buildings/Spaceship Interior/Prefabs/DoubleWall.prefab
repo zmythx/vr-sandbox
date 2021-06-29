@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 54945508552968142}
   m_Layer: 0
   m_Name: DoubleWall
-  m_TagString: Untagged
+  m_TagString: GeneratedLevel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -57,7 +57,7 @@ Material:
     - _Glossiness: 0.5
     - _GlossyReflections: 1
     - _Metallic: 0
-    - _NoiseScale: 8
+    - _NoiseScale: 45
     - _NoiseStrength: 1
     - _OcclusionStrength: 1
     - _ReceiveShadows: 1

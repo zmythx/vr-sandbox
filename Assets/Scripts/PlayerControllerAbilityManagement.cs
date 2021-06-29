@@ -20,7 +20,9 @@ public class PlayerControllerAbilityManagement : MonoBehaviour
     public Hand rightHand;
     public Hand leftHand;
 
-    public GameObject FireBall;
+
+    public GameObject LeftEquipSpell;
+    public GameObject RightEquipSpell;
 
     public GameObject DebugCube;
     private GameObject greenCube; //up cube
@@ -74,23 +76,26 @@ public class PlayerControllerAbilityManagement : MonoBehaviour
         leftHand = player.leftHand;
 
         psm.mana = 100;
+
+        #region Debug shit
         //isChargingLightningPalm = true;
         //lightningPalmInitialFlag = true;
         //isCasting = true;
 
-     /*   greenCube = Instantiate(DebugCube);
-        redCube = Instantiate(DebugCube);
-        blueCube = Instantiate(DebugCube);
-        yellowCube = Instantiate(DebugCube);
-        whiteCube = Instantiate(DebugCube);
-        blackCube = Instantiate(DebugCube);
+        /*   greenCube = Instantiate(DebugCube);
+           redCube = Instantiate(DebugCube);
+           blueCube = Instantiate(DebugCube);
+           yellowCube = Instantiate(DebugCube);
+           whiteCube = Instantiate(DebugCube);
+           blackCube = Instantiate(DebugCube);
 
-        greenCube.GetComponent<Renderer>().material.SetColor("_Color", Color.green);
-        redCube.GetComponent<Renderer>().material.SetColor("_Color", Color.red);
-        blueCube.GetComponent<Renderer>().material.SetColor("_Color", Color.blue);
-        yellowCube.GetComponent<Renderer>().material.SetColor("_Color", Color.yellow);
-        whiteCube.GetComponent<Renderer>().material.SetColor("_Color", Color.white);
-        blackCube.GetComponent<Renderer>().material.SetColor("_Color", Color.black); */
+           greenCube.GetComponent<Renderer>().material.SetColor("_Color", Color.green);
+           redCube.GetComponent<Renderer>().material.SetColor("_Color", Color.red);
+           blueCube.GetComponent<Renderer>().material.SetColor("_Color", Color.blue);
+           yellowCube.GetComponent<Renderer>().material.SetColor("_Color", Color.yellow);
+           whiteCube.GetComponent<Renderer>().material.SetColor("_Color", Color.white);
+           blackCube.GetComponent<Renderer>().material.SetColor("_Color", Color.black); */
+        #endregion
 
         lightningAbilityInstance = Instantiate(lightningAbilityParticles);
         fireAbilityInstance = Instantiate(fireAbilityParticles);
@@ -104,12 +109,39 @@ public class PlayerControllerAbilityManagement : MonoBehaviour
     {
         rightHand = player.rightHand;
         leftHand = player.leftHand;
-        if(spellTouch.state && spellTouch.changed)
-        {
-            GameObject fireSpell = Instantiate(FireBall);
-            FireBall.GetComponent<Spell>().SetOwner(transform.gameObject);
-            FireBall.GetComponent<Spell>().SetPositionReference(rightHand.gameObject);
+        bool rightState = spellTouch.GetState(SteamVR_Input_Sources.RightHand);
+        bool leftState = spellTouch.GetState(SteamVR_Input_Sources.LeftHand);
 
+        if(rightState && spellTouch.changed)
+        {
+            if (RightEquipSpell.GetComponent<Spell>().ManaCost <= psm.mana)
+            {
+                if (RightEquipSpell.GetComponent<Spell>().GetSpellType() == "Throwable")
+                {
+                    GameObject fireSpell = Instantiate(RightEquipSpell);
+                    Debug.Log("Setting owner to " + transform.gameObject.name);
+                    fireSpell.GetComponent<Spell>().SetOwner(transform.gameObject);
+                    Debug.Log("Setting position ref to " + rightHand.gameObject.name);
+                    fireSpell.GetComponent<Spell>().SetPositionReference(rightHand.gameObject);
+                }
+                psm.mana -= RightEquipSpell.GetComponent<Spell>().ManaCost;
+            }
+            
+        }
+        if (leftState && spellTouch.changed)
+        {
+            if (LeftEquipSpell.GetComponent<Spell>().ManaCost <= psm.mana)
+            {
+                if (LeftEquipSpell.GetComponent<Spell>().GetSpellType() == "Throwable")
+                {
+                    GameObject fireSpell = Instantiate(LeftEquipSpell);
+                    Debug.Log("Setting owner to " + transform.gameObject.name);
+                    fireSpell.GetComponent<Spell>().SetOwner(transform.gameObject);
+                    Debug.Log("Setting position ref to " + leftHand.gameObject.name);
+                    fireSpell.GetComponent<Spell>().SetPositionReference(leftHand.gameObject);
+                }
+                psm.mana -= LeftEquipSpell.GetComponent<Spell>().ManaCost;
+            }
         }
         if (triggerTouch.state)
         {
@@ -120,6 +152,9 @@ public class PlayerControllerAbilityManagement : MonoBehaviour
         {
             readyToCast = !readyToCast;
         }
+
+        #region shit old code
+        /*
         if (readyToCast)
         {
             readyToCast = false;
@@ -150,7 +185,7 @@ public class PlayerControllerAbilityManagement : MonoBehaviour
 
             lightningPalmInitialFlag = false;
             lightningAbilityInstance.transform.localScale = lightningPalmOriginalSize * 0.5f;
-            
+
         }
         if (isChargingLightningPalm && phm.GetHandState() == "RightAboveLeft" && psm.mana > 0 && lightningCharge < maxLightningCharge)
         {
@@ -169,7 +204,7 @@ public class PlayerControllerAbilityManagement : MonoBehaviour
             LightningPalmHitboxRef.GetComponent<Bullet>().SetOwner(transform.gameObject);
             LightningPalmHitboxRef.transform.position = rightHand.transform.position;
         }
-        
+
         if(isCastingLightningPalm && psm.mana > 0)
         {
             AttachSpellToHand(lightningAbilityInstance.gameObject);
@@ -188,10 +223,13 @@ public class PlayerControllerAbilityManagement : MonoBehaviour
                 GameObject newProj = Instantiate(FireballHitbox, rightHand.gameObject.transform.position, rightHand.gameObject.transform.rotation);
                // newProj.transform.LookAt(rightHand.gameObject.transform.position + -rightHand.gameObject.transform.forward * 2 + -rightHand.gameObject.transform.up * 2);
                 newProj.GetComponent<Rigidbody>().AddForce(phm.RHandRightVector(rightHand, 1800));
-                
+
             }
         }
-        if(psm.mana <= 0)
+        */
+        #endregion
+
+        if (psm.mana <= 0)
         {
             StopAllCasting();
         }

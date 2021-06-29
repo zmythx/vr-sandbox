@@ -162,7 +162,7 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         transform.GetComponent<Renderer>().material.SetColor("_Color", new Color(1 - (Health / MaxHealth), Health / MaxHealth, 0.1f));
-        if(Health < 0)
+        if(Health <= 0)
         {
             Destroy(transform.gameObject);
         }

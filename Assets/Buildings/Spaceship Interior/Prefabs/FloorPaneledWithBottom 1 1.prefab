@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 6134702759619287224}
   - component: {fileID: 6134702759615862936}
   - component: {fileID: 6134702759616862808}
-  - component: {fileID: 593220709032137612}
   - component: {fileID: 478158782262707992}
+  - component: {fileID: 1144792436823932049}
   m_Layer: 0
   m_Name: Cube.001
   m_TagString: Untagged
@@ -81,20 +81,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &593220709032137612
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6134702759618856088}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 1
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 4300000, guid: e0e4495f53b67c545a7550af63bb2bd6, type: 3}
 --- !u!114 &478158782262707992
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110,6 +96,19 @@ MonoBehaviour:
   objRender: {fileID: 6134702759616862808}
   matToChange: {fileID: 2100000, guid: 707b8efa4fd09814cb86d58a7e96c24d, type: 2}
   ColorSpeed: 0.5
+--- !u!65 &1144792436823932049
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6134702759618856088}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.02, y: 0.019999996, z: 0.00053679466}
+  m_Center: {x: 0, y: 0, z: -0.0097316}
 --- !u!1 &6134702759618856090
 GameObject:
   m_ObjectHideFlags: 0
@@ -215,7 +214,7 @@ GameObject:
   - component: {fileID: 6134702759619287228}
   m_Layer: 0
   m_Name: FloorPaneledWithBottom 1 1
-  m_TagString: Untagged
+  m_TagString: GeneratedLevel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

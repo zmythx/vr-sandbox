@@ -27,6 +27,8 @@ public class PlayerControllerMovement : MonoBehaviour
     public float xaxismove = 0;
     public float yaxismove = 0;
     public float jumpForce = 5;
+    public float playerHeightOffset = 0;
+    private float playerColliderBounds;
     Vector3 directionlock;
   //  private float mTimeThresholdSinceLastJump = 0.5f;
   //  private bool passedTimeThreshold = true;
@@ -35,19 +37,19 @@ public class PlayerControllerMovement : MonoBehaviour
     bool isTouchingKillzone()
     {
         int layermask = 1 << 15;
-        return Physics.Raycast(transform.position, -Vector3.up, playerCollider.bounds.extents.y + 0.1f, layermask);
+        return Physics.Raycast(transform.position, -Vector3.up, playerColliderBounds + 0.01f, layermask);
     }
     bool isGrounded()
     {
         int layermask = 1 << 15;
         layermask = ~layermask;
-        return Physics.Raycast(transform.position, -Vector3.up, playerCollider.bounds.extents.y + 0.1f, layermask);
+        return Physics.Raycast(transform.position, -Vector3.up, playerColliderBounds  + 0.01f, layermask);
     }
     bool isCollidingWithGround()
     {
         int layermask = 1 << 15;
         layermask = ~layermask;
-        if(isGrounded() && Physics.Raycast(transform.position, -Vector3.up, playerCollider.bounds.extents.y + 0.095f, layermask))
+        if(isGrounded() && Physics.Raycast(transform.position, -Vector3.up, playerColliderBounds + 0.0095f, layermask))
         {
             return true;
         }
@@ -60,6 +62,7 @@ public class PlayerControllerMovement : MonoBehaviour
         characterController = GetComponent<CharacterController>();
         psm = GetComponent<PlayerStateManagement>();
         rigbod = GetComponent<Rigidbody>();
+        playerColliderBounds = playerCollider.bounds.extents.y / 2 + playerHeightOffset;
     }
     void Update()
     {

@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 1967654797449555768}
   m_Layer: 0
   m_Name: ShieldDoor
-  m_TagString: Untagged
+  m_TagString: GeneratedLevel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -119,3 +119,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b0935d4490462d45b04a5150af1614b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EnemyArray: []
+  PuzzleArray: []
+  IsFinalDoor: 0

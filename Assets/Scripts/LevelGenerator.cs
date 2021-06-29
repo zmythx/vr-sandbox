@@ -8,6 +8,7 @@ public class LevelGenerator : MonoBehaviour
     public GameObject Wall;
     public GameObject Ceiling;
     public GameObject Door;
+    public GameObject FinalDoor;
 
     public int NumberOfRoomsToGenerate = 5;
     public int MinimumRoomSize = 3;
@@ -53,8 +54,16 @@ public class LevelGenerator : MonoBehaviour
             RoomX = Random.Range(MinimumRoomSize, MaximumRoomSize + 1);
             RoomY = Random.Range(MinimumRoomSize, MaximumRoomSize + 1);
             RoomZ = Random.Range(MinimumCeiling, MaximumCeiling + 1);
-            Room newRoom = new Room(XOffset, YOffset, RoomX, RoomY, RoomZ,
-                Floor, Wall, Ceiling, Door, newDoorNorth, DoorNorth, AssetSquareSize);
+            Room newRoom;
+
+            newRoom = new Room(XOffset, YOffset, RoomX, RoomY, RoomZ,
+                    Floor, Wall, Ceiling, Door, newDoorNorth, DoorNorth, AssetSquareSize);
+
+            if(i == NumberOfRoomsToGenerate - 2)
+            {
+                newRoom = new Room(XOffset, YOffset, RoomX, RoomY, RoomZ,
+                    Floor, Wall, Ceiling, FinalDoor, newDoorNorth, DoorNorth, AssetSquareSize);
+            }
             newRoom.DrawSelf();
             DoorPlace = newRoom.ReturnDoorPlace();
             YOffset = newRoom.ReturnOffsetY();
@@ -78,7 +87,7 @@ public class LevelGenerator : MonoBehaviour
                 for (int j = 0; j < DebugEnemySpawns; j++)
                 {
                     GameObject debugEnemy = Instantiate(DebugEnemy);
-                    debugEnemy.transform.position = new Vector3(Random.Range(xOldOffset + 2f, XOffset - 2f), Random.Range(1f, RoomZ * AssetSquareSize - AssetSquareSize - 1f), Random.Range(yOldOffset + 2f, YOffset - 2f));
+                    debugEnemy.transform.position = new Vector3(Random.Range(xOldOffset + 2f, XOffset - 2f), Random.Range(1f, RoomZ * AssetSquareSize - AssetSquareSize - 2f), Random.Range(yOldOffset + 2f, YOffset - 2f));
                     newRoom.DrawnDoor.transform.GetComponent<ShieldDoor>().EnemyArray.Add(debugEnemy);
                     Debug.Log("Adding enemy to shield door at " + newRoom.DrawnDoor.transform.position);
                 }

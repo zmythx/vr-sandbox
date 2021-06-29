@@ -1,0 +1,149 @@
+fileFormatVersion: 2
+guid: a044b9f8fb2f5f343bdcd68bdcce9038
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Back
+    100002: Barrels
+    100004: BarrelTopStrip
+    100006: Empty
+    100008: Grip
+    100010: Pump
+    100012: //RootNode
+    100014: Underhang
+    400000: Back
+    400002: Barrels
+    400004: BarrelTopStrip
+    400006: Empty
+    400008: Grip
+    400010: Pump
+    400012: //RootNode
+    400014: Underhang
+    2100000: MatteBlack
+    2100002: GunSilver
+    2100004: No Name
+    2100006: PumpMat
+    2300000: Back
+    2300002: Barrels
+    2300004: BarrelTopStrip
+    2300006: Grip
+    2300008: Pump
+    2300010: Underhang
+    3300000: Back
+    3300002: Barrels
+    3300004: BarrelTopStrip
+    3300006: Grip
+    3300008: Pump
+    3300010: Underhang
+    4300000: Grip
+    4300002: Back
+    4300004: Barrels
+    4300006: BarrelTopStrip
+    4300008: Underhang
+    4300010: Pump
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: GunSilver
+    second: {fileID: 2100000, guid: 47549084b851bdb4b8f81e4feb9879ef, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MatteBlack
+    second: {fileID: 2100000, guid: 25cc9ecce13f16e42a231b66b34b7fda, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: No Name
+    second: {fileID: 2100000, guid: 23452fe5004becc42912822485f272c4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PumpMat
+    second: {fileID: 2100000, guid: 9aa20a2f571318c489eca0ac9a913267, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.2
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
