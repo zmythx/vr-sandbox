@@ -1,0 +1,299 @@
+fileFormatVersion: 2
+guid: 2de3c5d7d495a4f43a3f4b857001b35d
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: CornerPiece
+    100002: CornerPiece.001
+    100004: CornerPiece.002
+    100006: CornerPiece.003
+    100008: CornerPiece.004
+    100010: CornerPiece.005
+    100012: CornerPiece.006
+    100014: CornerPiece.007
+    100016: Cube.001
+    100018: Cube.002
+    100020: //RootNode
+    100022: Standard-Light-Wall
+    100024: Standard-Light-Wall.001
+    100026: Standard-Light-Wall.002
+    100028: Standard-Light-Wall.003
+    100030: Standard-Light-Wall.004
+    100032: Standard-Light-Wall.005
+    100034: Standard-Light-Wall.006
+    100036: Standard-Light-Wall.007
+    100038: Standard-Light-Wall.008
+    100040: Standard-Light-Wall.009
+    100042: Standard-Light-Wall.010
+    100044: Standard-Light-Wall.011
+    100046: Standard-Light-Wall.012
+    100048: Standard-Light-Wall.013
+    100050: Standard-Light-Wall.014
+    100052: Standard-Light-Wall.015
+    100054: Standard-Light-Wall.016
+    100056: Standard-Light-Wall.017
+    100058: Standard-Light-Wall.018
+    100060: Standard-Light-Wall.019
+    100062: Standard-Pole-Wall
+    100064: Standard-Pole-Wall.001
+    100066: Standard-Pole-Wall.002
+    100068: Standard-Pole-Wall.003
+    100070: Standard-Pole-Wall.004
+    100072: Standard-Pole-Wall.005
+    400000: CornerPiece
+    400002: CornerPiece.001
+    400004: CornerPiece.002
+    400006: CornerPiece.003
+    400008: CornerPiece.004
+    400010: CornerPiece.005
+    400012: CornerPiece.006
+    400014: CornerPiece.007
+    400016: Cube.001
+    400018: Cube.002
+    400020: //RootNode
+    400022: Standard-Light-Wall
+    400024: Standard-Light-Wall.001
+    400026: Standard-Light-Wall.002
+    400028: Standard-Light-Wall.003
+    400030: Standard-Light-Wall.004
+    400032: Standard-Light-Wall.005
+    400034: Standard-Light-Wall.006
+    400036: Standard-Light-Wall.007
+    400038: Standard-Light-Wall.008
+    400040: Standard-Light-Wall.009
+    400042: Standard-Light-Wall.010
+    400044: Standard-Light-Wall.011
+    400046: Standard-Light-Wall.012
+    400048: Standard-Light-Wall.013
+    400050: Standard-Light-Wall.014
+    400052: Standard-Light-Wall.015
+    400054: Standard-Light-Wall.016
+    400056: Standard-Light-Wall.017
+    400058: Standard-Light-Wall.018
+    400060: Standard-Light-Wall.019
+    400062: Standard-Pole-Wall
+    400064: Standard-Pole-Wall.001
+    400066: Standard-Pole-Wall.002
+    400068: Standard-Pole-Wall.003
+    400070: Standard-Pole-Wall.004
+    400072: Standard-Pole-Wall.005
+    2100000: LightGray
+    2100002: DarkGray
+    2100004: Light
+    2100006: No Name
+    2100008: LightGray.002
+    2100010: DarkGray.002
+    2100012: Light.002
+    2100014: LightGray.005
+    2100016: DarkGray.005
+    2100018: Light.004
+    2300000: CornerPiece
+    2300002: CornerPiece.001
+    2300004: CornerPiece.002
+    2300006: CornerPiece.003
+    2300008: CornerPiece.004
+    2300010: CornerPiece.005
+    2300012: CornerPiece.006
+    2300014: CornerPiece.007
+    2300016: Cube.001
+    2300018: Cube.002
+    2300020: Standard-Light-Wall
+    2300022: Standard-Light-Wall.001
+    2300024: Standard-Light-Wall.002
+    2300026: Standard-Light-Wall.003
+    2300028: Standard-Light-Wall.004
+    2300030: Standard-Light-Wall.005
+    2300032: Standard-Light-Wall.006
+    2300034: Standard-Light-Wall.007
+    2300036: Standard-Light-Wall.008
+    2300038: Standard-Light-Wall.009
+    2300040: Standard-Light-Wall.010
+    2300042: Standard-Light-Wall.011
+    2300044: Standard-Light-Wall.012
+    2300046: Standard-Light-Wall.013
+    2300048: Standard-Light-Wall.014
+    2300050: Standard-Light-Wall.015
+    2300052: Standard-Light-Wall.016
+    2300054: Standard-Light-Wall.017
+    2300056: Standard-Light-Wall.018
+    2300058: Standard-Light-Wall.019
+    2300060: Standard-Pole-Wall
+    2300062: Standard-Pole-Wall.001
+    2300064: Standard-Pole-Wall.002
+    2300066: Standard-Pole-Wall.003
+    2300068: Standard-Pole-Wall.004
+    2300070: Standard-Pole-Wall.005
+    3300000: CornerPiece
+    3300002: CornerPiece.001
+    3300004: CornerPiece.002
+    3300006: CornerPiece.003
+    3300008: CornerPiece.004
+    3300010: CornerPiece.005
+    3300012: CornerPiece.006
+    3300014: CornerPiece.007
+    3300016: Cube.001
+    3300018: Cube.002
+    3300020: Standard-Light-Wall
+    3300022: Standard-Light-Wall.001
+    3300024: Standard-Light-Wall.002
+    3300026: Standard-Light-Wall.003
+    3300028: Standard-Light-Wall.004
+    3300030: Standard-Light-Wall.005
+    3300032: Standard-Light-Wall.006
+    3300034: Standard-Light-Wall.007
+    3300036: Standard-Light-Wall.008
+    3300038: Standard-Light-Wall.009
+    3300040: Standard-Light-Wall.010
+    3300042: Standard-Light-Wall.011
+    3300044: Standard-Light-Wall.012
+    3300046: Standard-Light-Wall.013
+    3300048: Standard-Light-Wall.014
+    3300050: Standard-Light-Wall.015
+    3300052: Standard-Light-Wall.016
+    3300054: Standard-Light-Wall.017
+    3300056: Standard-Light-Wall.018
+    3300058: Standard-Light-Wall.019
+    3300060: Standard-Pole-Wall
+    3300062: Standard-Pole-Wall.001
+    3300064: Standard-Pole-Wall.002
+    3300066: Standard-Pole-Wall.003
+    3300068: Standard-Pole-Wall.004
+    3300070: Standard-Pole-Wall.005
+    4300000: Standard-Light-Wall
+    4300002: Cube.002
+    4300004: Standard-Pole-Wall
+    4300006: Standard-Light-Wall.001
+    4300008: Cube.001
+    4300010: CornerPiece
+    4300012: Standard-Light-Wall.003
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DarkGray
+    second: {fileID: 2100000, guid: 2d81487f36866734f82e124637248349, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DarkGray.002
+    second: {fileID: 2100000, guid: 2d81487f36866734f82e124637248349, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DarkGray.005
+    second: {fileID: 2100000, guid: 2d81487f36866734f82e124637248349, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Light
+    second: {fileID: 2100000, guid: 47fbc90daa91ab541984ebd9f72db2d4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Light.002
+    second: {fileID: 2100000, guid: 47fbc90daa91ab541984ebd9f72db2d4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Light.004
+    second: {fileID: 2100000, guid: 47fbc90daa91ab541984ebd9f72db2d4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: LightGray
+    second: {fileID: 2100000, guid: 7f8efe9404a0d5f4cb580c2dd69857bb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: LightGray.002
+    second: {fileID: 2100000, guid: 7f8efe9404a0d5f4cb580c2dd69857bb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: LightGray.005
+    second: {fileID: 2100000, guid: 7f8efe9404a0d5f4cb580c2dd69857bb, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

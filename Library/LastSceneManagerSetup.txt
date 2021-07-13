@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/ParticleTesting.unity
+- path: Assets/WeaponsTest.unity
   isLoaded: 1
   isActive: 1

@@ -24,40 +24,10 @@ public class PlayerControllerAbilityManagement : MonoBehaviour
     public GameObject LeftEquipSpell;
     public GameObject RightEquipSpell;
 
-    public GameObject DebugCube;
-    private GameObject greenCube; //up cube
-    private GameObject redCube; //down cube
-    private GameObject blueCube; //left cube
-    private GameObject yellowCube; //right cube
-    private GameObject whiteCube; // backwards cube
-    private GameObject blackCube; // forward cube
-
     //Expectation for both hands is: black forward, white behind, clockwise from 12: green, yellow, red, blue
-
-    public ParticleSystem lightningAbilityParticles;
-    private ParticleSystem lightningAbilityInstance;
-
-    public ParticleSystem fireAbilityParticles;
-    private ParticleSystem fireAbilityInstance;
 
     private bool readyToCast = false;
     public bool isCasting = false;
-    public bool isChargingLightningPalm = false;
-    public bool isCastingLightningPalm = false;
-    private bool lightningPalmInitialFlag = false;
-    public float lightningPalmChargeMultiplier = 3;
-    private float lightningCharge = 0;
-    private float maxLightningCharge = 100;
-
-    public bool isCastingFirePalm = false;
-    public GameObject FireballHitbox;
-    public GameObject LightningPalmHitbox;
-    private GameObject LightningPalmHitboxRef;
-    public float FireballCastRate = 1;
-    private float FireBallElapsedTime = 0;
-
-    private Vector3 lightningPalmOriginalSize = new Vector3();
-    private Vector3 lightningPalmBlueOriginalSize = new Vector3();
 
     private Vector3 spellHandAdjustmentVector;
 
@@ -96,11 +66,6 @@ public class PlayerControllerAbilityManagement : MonoBehaviour
            whiteCube.GetComponent<Renderer>().material.SetColor("_Color", Color.white);
            blackCube.GetComponent<Renderer>().material.SetColor("_Color", Color.black); */
         #endregion
-
-        lightningAbilityInstance = Instantiate(lightningAbilityParticles);
-        fireAbilityInstance = Instantiate(fireAbilityParticles);
-
-        lightningPalmOriginalSize = lightningAbilityInstance.transform.localScale;
 
         spellHandAdjustmentVector = -rightHand.gameObject.transform.right * 0.01f + -rightHand.gameObject.transform.forward * 0.01f + -rightHand.gameObject.transform.up * 0.01f; 
     }
@@ -236,15 +201,6 @@ public class PlayerControllerAbilityManagement : MonoBehaviour
     }
     private void StopAllCasting()
     {
-        Destroy(LightningPalmHitboxRef);
-        FireBallElapsedTime = 0;
-        lightningCharge = 0;
         isCasting = false;
-        isChargingLightningPalm = false;
-        lightningPalmInitialFlag = false;
-        isCastingLightningPalm = false;
-        isCastingFirePalm = false;
-        lightningAbilityInstance.gameObject.SetActive(false);
-        fireAbilityInstance.gameObject.SetActive(false);
     }
 }

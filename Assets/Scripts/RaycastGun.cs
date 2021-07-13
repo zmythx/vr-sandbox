@@ -14,6 +14,10 @@ public class RaycastGun : MonoBehaviour
     public int MaxAmmo;
     public int CurrentAmmo;
     public float RecoilAmount;
+    public float MaxRecoil;
+    public float RecoilTime;
+    public bool NegativeRecoil;
+    private bool initRecoil;
     public float FireRate;
     public float FireForce;
     private float FirePerSec;
@@ -65,6 +69,9 @@ public class RaycastGun : MonoBehaviour
     Vector3 firePosition;
     Quaternion newRot;
     Vector3 newPos;
+    Quaternion firePointRotation;
+    Vector3 firePointPosition;
+    Quaternion newFirepointRot;
 
     // Start is called before the first frame update
     void Start()
@@ -156,22 +163,31 @@ public class RaycastGun : MonoBehaviour
     {
         if (State != "recoil")
         {
+            initRecoil = true;
             State = "recoil";
             t = 0;
             firePosition = transform.localPosition;
             fireRotation = transform.localRotation;
-            transform.Rotate(0, RecoilAmount * 10, 0);
-            transform.localPosition.Set(transform.localPosition.x, transform.localPosition.y + 0.1f, transform.localPosition.z - 0.3f);
+            firePointPosition = Firepoint.transform.localPosition;
+            firePointRotation = Firepoint.transform.localRotation;
+            transform.Rotate(0, RecoilAmount * 20 * (NegativeRecoil ? -1 : 1), 0);
+            Firepoint.transform.Rotate(0, RecoilAmount * 20 * (NegativeRecoil ? -1 : 1), 0);
+            //  transform.localPosition.Set(transform.localPosition.x, transform.localPosition.y + 0.1f * RecoilAmount, transform.localPosition.z - 0.3f * RecoilAmount);
+            newPos = new Vector3(0, 0.3f * RecoilAmount, 0);
             newRot = transform.localRotation;
-            newPos = transform.localPosition;
+            newFirepointRot = Firepoint.transform.localRotation;
+         //   newPos = transform.localPosition;
         }
         else
         {
+            initRecoil = false;
             t = 0;
-            transform.Rotate(0, RecoilAmount * 10, 0);
-            transform.localPosition.Set(transform.localPosition.x, transform.localPosition.y + 0.1f, transform.localPosition.z - 0.3f);
-            newRot = transform.localRotation;
-            newPos = transform.localPosition;
+            transform.Rotate(0, RecoilAmount * 5, 0);
+            Firepoint.transform.Rotate(0, RecoilAmount * 5, 0);
+            if (newPos.y < MaxRecoil * RecoilAmount)
+            {
+                newPos = newPos + new Vector3(0, 0.15f * RecoilAmount * (NegativeRecoil ? -1 : 1), 0);
+            }
         }
     }
     // Update is called once per frame
@@ -239,17 +255,36 @@ public class RaycastGun : MonoBehaviour
             }
             if (State == "recoil")
             {
-                if (t < 1)
+                if (initRecoil)
                 {
-                    transform.localPosition = Vector3.Lerp(newPos, firePosition, t);
-                    transform.localRotation = Quaternion.Lerp(newRot, fireRotation, t);
+                    transform.localPosition = Vector3.Lerp(firePosition, firePosition + newPos, t * 10 / RecoilTime);
+                    transform.localRotation = Quaternion.Lerp(fireRotation, newRot, t * 10 / RecoilTime);
+                    Firepoint.transform.localPosition = Vector3.Lerp(firePointPosition, firePointPosition + newPos, t * 10 / RecoilTime);
+                    Firepoint.transform.localRotation = Quaternion.Lerp(firePointRotation, newFirepointRot, t * 10 / RecoilTime);
+                    if (t*6/RecoilTime >= 1)
+                    {
+                        initRecoil = false;
+                        t = 0;
+                    }
                 }
-                if(t >= 1)
+                else
                 {
-                    transform.localPosition = firePosition;
-                    transform.localRotation = fireRotation;
-                    State = "";
-                    t = 0;
+                    if (t < RecoilTime)
+                    {
+                        transform.localPosition = Vector3.Lerp(firePosition + newPos, firePosition, t / RecoilTime);
+                        transform.localRotation = Quaternion.Lerp(newRot, fireRotation, t / RecoilTime);
+                        Firepoint.transform.localPosition = Vector3.Lerp(firePointPosition + newPos, firePointPosition, t / RecoilTime);
+                        Firepoint.transform.localRotation = Quaternion.Lerp(newFirepointRot, firePointRotation, t / RecoilTime);
+                    }
+                    if (t >= RecoilTime)
+                    {
+                        transform.localPosition = firePosition;
+                        transform.localRotation = fireRotation;
+                        Firepoint.transform.localPosition = firePointPosition;
+                        Firepoint.transform.localRotation = firePointRotation;
+                        State = "";
+                        t = 0;
+                    }
                 }
 
             }

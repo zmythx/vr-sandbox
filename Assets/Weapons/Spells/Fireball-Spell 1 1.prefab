@@ -54,7 +54,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5819794241525116098}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -260,6 +260,36 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5819794241525116121}
     m_Modifications:
+    - target: {fileID: 6446054727473359305, guid: 53092a793056f1a4ebfd4c2467552ee7,
+        type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6446054727473359305, guid: 53092a793056f1a4ebfd4c2467552ee7,
+        type: 3}
+      propertyPath: simulationSpeed
+      value: 1.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6446054727473359305, guid: 53092a793056f1a4ebfd4c2467552ee7,
+        type: 3}
+      propertyPath: InitialModule.startSize.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6446054727473359305, guid: 53092a793056f1a4ebfd4c2467552ee7,
+        type: 3}
+      propertyPath: InitialModule.startSizeY.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6446054727473359305, guid: 53092a793056f1a4ebfd4c2467552ee7,
+        type: 3}
+      propertyPath: InitialModule.startSizeZ.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6446054727473359305, guid: 53092a793056f1a4ebfd4c2467552ee7,
+        type: 3}
+      propertyPath: InitialModule.startSize.minScalar
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6446054727473359308, guid: 53092a793056f1a4ebfd4c2467552ee7,
         type: 3}
       propertyPath: m_Name

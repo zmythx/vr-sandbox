@@ -43,7 +43,7 @@ public class PlayerControllerMovement : MonoBehaviour
     {
         int layermask = 1 << 15;
         layermask = ~layermask;
-        return Physics.Raycast(transform.position, -Vector3.up, playerColliderBounds  + 0.01f, layermask);
+        return Physics.Raycast(transform.position, -Vector3.up, playerColliderBounds  + 0.015f, layermask);
     }
     bool isCollidingWithGround()
     {

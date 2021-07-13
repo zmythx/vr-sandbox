@@ -34,7 +34,7 @@ public class PlayerStateManagement : MonoBehaviour
     }
     public bool IsCastingLightningPalm()
     {
-        return pcam.isCastingLightningPalm;
+        return false;
     }
     public bool IsMoving()
     {
@@ -42,7 +42,7 @@ public class PlayerStateManagement : MonoBehaviour
     }
     public bool IsStunned()
     {
-        return (pcam.isChargingLightningPalm || psm.chargeState > 0);
+        return (psm.chargeState > 0);
     }
     public void DecreaseHealth(float damage)
     {
@@ -86,7 +86,7 @@ public class PlayerStateManagement : MonoBehaviour
     }
     public float AbilityLightningPalmSpeedMultiplier()
     {
-        return pcam.lightningPalmChargeMultiplier;
+        return 0;
     }
     public void Die()
     {
